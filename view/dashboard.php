@@ -13,24 +13,15 @@ include_once('../controller/sair.php');
 </head>
 <body>
 
-	
-
+	<!-- BOTÃO MOBILE -->
 	<div class="mobile-toggle" onclick="toggleSidebar()">
-			<i class="fa-solid fa-bars"></i>
-		</div>
-		<div class="overlay" onclick="toggleSidebar()"></div>
-	<div class="sidebar">
+		<i class="fa-solid fa-bars"></i>
+	</div>
 
-		
+	<div class="sidebar">
 		<div class="logo">
 			<i class="fa-solid fa-chart-line"></i>
 			<span>Controle Financeiro</span>
-		</div>
-
-
-		<div class="userLogado">
-			<i class="fa-solid fa-circle-user"></i>
-			<p>Bem-vindo,<br><strong><?php echo $_SESSION['usuario']; ?></strong></p>
 		</div>
 
 		<ul class="menu">
@@ -40,28 +31,24 @@ include_once('../controller/sair.php');
 					<span>Incluir Despesas</span>
 				</a>
 			</li>
-
 			<li>
 				<a href="consultar-despesas.php">
 					<i class="fa-solid fa-magnifying-glass-dollar"></i>
 					<span>Consultar Despesas</span>
 				</a>
 			</li>
-
 			<li>
 				<a href="cofrinho.php">
 					<i class="fa-solid fa-wallet"></i>
 					<span>Caixinha</span>
 				</a>
 			</li>
-
 			<li>
 				<a href="relatorios.php">
 					<i class="fa-solid fa-chart-pie"></i>
 					<span>Relatórios</span>
 				</a>
 			</li>
-
 			<li>
 				<a href="configuracoes.php">
 					<i class="fa-solid fa-gear"></i>
@@ -69,8 +56,6 @@ include_once('../controller/sair.php');
 				</a>
 			</li>
 			<hr class="divider">
-
-			<!-- Botão sair -->
 			<li class="logout-item">
 				<a href="../controller/sair.php">
 					<i class="fa-solid fa-right-from-bracket"></i>
@@ -78,8 +63,8 @@ include_once('../controller/sair.php');
 				</a>
 			</li>
 		</ul>
-
 	</div>
+
 
 	<div class="main-content">
 
@@ -102,10 +87,10 @@ include_once('../controller/sair.php');
 
 				<div class="card resumo">
 					<div class="card-icon green">
-						<i class="fa-solid fa-piggy-bank"></i>
+						<i class="fa-solid fa-wallet"></i>
 					</div>
 					<div class="card-info">
-						<h3>Total no Cofrinho</h3>
+						<h3>Total na Caixinha</h3>
 						<p>R$ 5.800,00</p>
 					</div>
 				</div>
@@ -164,8 +149,10 @@ include_once('../controller/sair.php');
 </html>
 
 <script>
-function toggleSidebar() {
-    document.querySelector('.sidebar').classList.toggle('active');
-    document.querySelector('.overlay').classList.toggle('active');
+	function toggleSidebar() {
+		const sidebar = document.querySelector('.sidebar');
+		const main = document.querySelector('.main-content');
+		sidebar.classList.toggle('active');
+    main.classList.toggle('shifted'); // importante para empurrar o conteúdo
 }
 </script>

@@ -121,6 +121,10 @@ body {
     color: white;
 }
 
+.logout-item i:hover {
+    color: white;
+}
+
 .logout-item a:hover {
     background-color: #ef476f;
     color: #fff;
@@ -143,6 +147,7 @@ body {
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+
 }
 
 /* CARD RESUMO */
@@ -150,6 +155,7 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-top:-50px ;
 }
 
 .card-icon {
@@ -221,93 +227,45 @@ body {
     gap: 30px; /* 👈 espaçamento vertical entre os blocos */
 }
 
-/* BOTÃO MOBILE */
-.mobile-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1100;
-    color: #1e1f36;
-}
-
-/* TRANSIÇÃO SIDEBAR */
-.sidebar {
-    transition: 0.3s ease;
-}
-
-/* MOBILE */
+/* MOBILE RESPONSIVO */
 @media (max-width: 768px) {
 
     .sidebar {
-        transform: translateX(-100%);
         position: fixed;
+        top: 0;
+        left: -250px; /* escondida */
+        width: 250px;
+        height: 100%;
         z-index: 1000;
+        transition: left 0.3s ease;
     }
 
     .sidebar.active {
-        transform: translateX(0);
+        left: 0; /* abre */
     }
 
     .main-content {
-        margin-left: 0;
+        margin-left: 0; /* começa sem margem */
+        transition: margin-left 0.3s ease;
+    }
+
+    .main-content.shifted {
+        margin-left: 250px; /* empurra conteúdo */
     }
 
     .mobile-toggle {
         display: block;
-    }
-}
-
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(2px);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s ease;
-    z-index: 900;
-}
-
-.overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.mobile-header {
-    display: none;
-}
-
-@media (max-width: 768px) {
-
-    .mobile-header {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 15px 20px;
-        background: #ffffff;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1200;
+        top: 15px;
+        left: 15px;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1100;
+        color: white;
     }
 
-    .main-content {
-        margin-left: 0;
-        padding-top: 80px; /* espaço da header */
-    }
-
-
-}
-
-@media (max-width: 768px) {
-
+    /* esconde logo da sidebar no mobile, se quiser */
     .sidebar .logo {
         display: none;
     }
-
 }

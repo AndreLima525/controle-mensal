@@ -22,7 +22,7 @@
 						<label> Usuário </label>
 						<input type="text" name="usuario" required>
 
-						<label> Senho </label>
+						<label> Senha </label>
 						<input type="password" name="senha" required>
 
 						<button> Entrar </button>

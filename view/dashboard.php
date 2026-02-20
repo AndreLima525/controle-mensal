@@ -1,5 +1,5 @@
 <?php
-	include_once('../controller/protected.php');
+	include_once('../controller/sair.php');
 ?>
 
 <!DOCTYPE html>

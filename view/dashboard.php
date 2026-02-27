@@ -26,31 +26,35 @@ include_once('../controller/sair.php');
 
 		<ul class="menu">
 			<li>
-				<a href="incluir-despesa.php">
+				<a href="#" onclick="abrirModal('modalIncluir.php','Incluir Despesas')">
 					<i class="fa-solid fa-plus-circle"></i>
 					<span>Incluir Despesas</span>
 				</a>
 			</li>
+
 			<li>
-				<a href="consultar-despesas.php">
+				<a href="#" onclick="abrirModal('consultarDespesas.php','Consultar Despesas')">
 					<i class="fa-solid fa-magnifying-glass-dollar"></i>
 					<span>Consultar Despesas</span>
 				</a>
 			</li>
+
 			<li>
-				<a href="cofrinho.php">
+				<a href="#" onclick="abrirModal('modalCaixinha.php','Caixinha')">
 					<i class="fa-solid fa-wallet"></i>
 					<span>Caixinha</span>
 				</a>
 			</li>
+
 			<li>
-				<a href="relatorios.php">
+				<a href="#" onclick="abrirModal('modalRelatorios.php','Relatórios')">
 					<i class="fa-solid fa-chart-pie"></i>
 					<span>Relatórios</span>
 				</a>
 			</li>
+
 			<li>
-				<a href="configuracoes.php">
+				<a href="#" onclick="abrirModal('modalConfig.php','Configurações')">
 					<i class="fa-solid fa-gear"></i>
 					<span>Configurações</span>
 				</a>
@@ -145,14 +149,50 @@ include_once('../controller/sair.php');
 
 	</div>
 </div>
+
+
+<!-- MODAL GLOBAL -->
+<div class="modal-overlay" id="modalOverlay">
+	<div class="modal-container">
+		<div class="modal-header">
+			<h3 id="modalTitle">Título</h3>
+			<button onclick="fecharModal()">
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+		</div>
+
+		<div class="modal-body" id="modalContent">
+			<!-- Conteúdo carregado aqui -->
+		</div>
+	</div>
+</div>
+
 </body>
 </html>
 
+
 <script>
+
 	function toggleSidebar() {
 		const sidebar = document.querySelector('.sidebar');
 		const main = document.querySelector('.main-content');
 		sidebar.classList.toggle('active');
     main.classList.toggle('shifted'); // importante para empurrar o conteúdo
+}
+
+function abrirModal(pagina, titulo) {
+	document.getElementById('modalTitle').innerText = titulo;
+	
+	fetch(pagina)
+	.then(response => response.text())
+	.then(data => {
+		document.getElementById('modalContent').innerHTML = data;
+		document.getElementById('modalOverlay').classList.add('active');
+	});
+}
+
+function fecharModal() {
+	document.getElementById('modalOverlay').classList.remove('active');
+	document.getElementById('modalContent').innerHTML = '';
 }
 </script>

@@ -177,7 +177,7 @@ include_once('../controller/sair.php');
 		const sidebar = document.querySelector('.sidebar');
 		const main = document.querySelector('.main-content');
 		sidebar.classList.toggle('active');
-    main.classList.toggle('shifted'); // importante para empurrar o conteúdo
+    	main.classList.toggle('shifted'); 
 }
 
 function abrirModal(pagina, titulo) {

@@ -155,7 +155,7 @@ include_once('../controller/sair.php');
 <div class="modal-overlay" id="modalOverlay">
 	<div class="modal-container">
 		<div class="modal-header">
-			<h3 id="modalTitle">Título</h3>
+			<h1 id="modalTitle">Título</h1>
 			<button onclick="fecharModal()">
 				<i class="fa-solid fa-xmark"></i>
 			</button>
@@ -182,7 +182,7 @@ include_once('../controller/sair.php');
 
 function abrirModal(pagina, titulo) {
 	document.getElementById('modalTitle').innerText = titulo;
-	
+
 	fetch(pagina)
 	.then(response => response.text())
 	.then(data => {

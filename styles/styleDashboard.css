@@ -315,14 +315,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 18px; /* menor altura */
-    background: background: linear-gradient(135deg, #1e293b, #0f172a);; /* tira aquele degradê pesado */
+    background: linear-gradient(135deg, #1e293b, #0f172a); /* tira aquele degradê pesado */
     border-bottom: 1px solid #e2e8f0;
 }
 
-.modal-header h3 {
-    font-size: 15px; /* menor */
+.modal-header h1 {
+    font-size: 20px; /* menor */
     font-weight: 500; /* mais leve */
-    color: #1e293b;
+    color: white;
     margin: 0;
 }
 

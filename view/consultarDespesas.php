@@ -77,20 +77,23 @@ include_once('../controller/fnConsultarDespesasController.php');
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="data">02/03/2026</td>
-                <td class="categoria">Alimentação</td>
-                <td class="descricao">Mercado</td>
-                <td class="valor">150,00</td>
-                <td class="acoes">
-                    <button class="btn-editar">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-                    <button class="btn-excluir">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+
+            <?php foreach():?>
+                <tr>
+                    <td class="data">02/03/2026</td>
+                    <td class="categoria">Alimentação</td>
+                    <td class="descricao">Mercado</td>
+                    <td class="valor">150,00</td>
+                    <td class="acoes">
+                        <a href="" class="btn-editar">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <a href="" class="btn-excluir">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+            </tbody>
+        </table>
+    </div>

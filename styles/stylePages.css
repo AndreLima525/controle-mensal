@@ -103,7 +103,7 @@
 
 /* textarea ocupar 100% */
 .full-width {
-    width: 100%;
+    grid-column: 1 / -1;
     margin-top: 20px;
 }
 
@@ -119,9 +119,11 @@
 
 /* BOTÕES */
 .form-actions {
+    grid-column: 1 / -1;
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .btn {
@@ -160,6 +162,7 @@
 
 /* BOTÃO VOLTAR */
 .btn-voltar {
+    text-decoration: none;
     background: #f1f5f9;
     color: #334155;
     border: 1px solid #e2e8f0;

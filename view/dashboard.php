@@ -25,36 +25,44 @@ include_once('../controller/sair.php');
 		</div>
 
 		<ul class="menu">
+
 			<li>
-				<a href="#" onclick="abrirModal('modalIncluir.php','Incluir Despesas')">
+				<a href="?pagina=home">
+					<i class="fa-solid fa-gauge"></i>
+					<span>Dashboard</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="?pagina=incluir">
 					<i class="fa-solid fa-plus-circle"></i>
 					<span>Incluir Despesas</span>
 				</a>
 			</li>
 
 			<li>
-				<a href="#" onclick="abrirModal('consultarDespesas.php','Consultar Despesas')">
+				<a href="?pagina=consultar">
 					<i class="fa-solid fa-magnifying-glass-dollar"></i>
 					<span>Consultar Despesas</span>
 				</a>
 			</li>
 
 			<li>
-				<a href="#" onclick="abrirModal('modalCaixinha.php','Caixinha')">
+				<a href="?pagina=caixinha">
 					<i class="fa-solid fa-wallet"></i>
 					<span>Caixinha</span>
 				</a>
 			</li>
 
 			<li>
-				<a href="#" onclick="abrirModal('modalRelatorios.php','Relatórios')">
+				<a href="?pagina=relatorios">
 					<i class="fa-solid fa-chart-pie"></i>
 					<span>Relatórios</span>
 				</a>
 			</li>
 
 			<li>
-				<a href="#" onclick="abrirModal('modalConfig.php','Configurações')">
+				<a href="?pagina=config">
 					<i class="fa-solid fa-gear"></i>
 					<span>Configurações</span>
 				</a>
@@ -71,101 +79,46 @@ include_once('../controller/sair.php');
 
 
 	<div class="main-content">
-
-
-
 		<div class="dashboard">
 
-			<!-- CARDS RESUMO -->
-			<div class="cards-resumo">
+			
+			
 
-				<div class="card resumo">
-					<div class="card-icon blue">
-						<i class="fa-solid fa-calendar-day"></i>
-					</div>
-					<div class="card-info">
-						<h3>Despesas do Mês</h3>
-						<p>R$ 2.350,00</p>
-					</div>
-				</div>
+				<?php
+				$pagina = $_GET['pagina'] ?? 'home';
 
-				<div class="card resumo">
-					<div class="card-icon green">
-						<i class="fa-solid fa-wallet"></i>
-					</div>
-					<div class="card-info">
-						<h3>Total na Caixinha</h3>
-						<p>R$ 5.800,00</p>
-					</div>
-				</div>
+				switch($pagina){
 
-			</div>
+					case 'incluir':
+					include 'modalIncluir.php';
+					break;
 
+					case 'consultar':
+					include 'consultarDespesas.php';
+					break;
 
-			<!-- ÚLTIMAS DESPESAS -->
-			<div class="card lista-despesas">
-				<h3>Últimas Despesas</h3>
+					case 'caixinha':
+					include 'modalCaixinha.php';
+					break;
 
-				<table>
-					<thead>
-						<tr>
-							<th>Descrição</th>
-							<th>Categoria</th>
-							<th>Valor</th>
-							<th>Data</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Supermercado</td>
-							<td>Alimentação</td>
-							<td>R$ 350,00</td>
-							<td>18/02/2026</td>
-						</tr>
-						<tr>
-							<td>Internet</td>
-							<td>Casa</td>
-							<td>R$ 120,00</td>
-							<td>15/02/2026</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+					case 'relatorios':
+					include 'modalRelatorios.php';
+					break;
 
+					case 'config':
+					include 'modalConfig.php';
+					break;
 
-			<!-- POWER BI -->
-			<div class="card powerbi">
-				<h3>Evolução Anual</h3>
+					default:
+					include 'home.php';
+					break;
+				}
+				?>
 
-				<iframe 
-				title="Power BI"
-				width="100%" 
-				height="400" 
-				src="LINK_DO_SEU_POWERBI_AQUI"
-				frameborder="0"
-				allowFullScreen="true">
-			</iframe>
+			
 		</div>
 
 	</div>
-</div>
-
-
-<!-- MODAL GLOBAL -->
-<div class="modal-overlay" id="modalOverlay">
-	<div class="modal-container">
-		<div class="modal-header">
-			<h1 id="modalTitle">Título</h1>
-			<button onclick="fecharModal()">
-				<i class="fa-solid fa-xmark"></i>
-			</button>
-		</div>
-
-		<div class="modal-body" id="modalContent">
-			<!-- Conteúdo carregado aqui -->
-		</div>
-	</div>
-</div>
 
 </body>
 </html>
@@ -177,22 +130,6 @@ include_once('../controller/sair.php');
 		const sidebar = document.querySelector('.sidebar');
 		const main = document.querySelector('.main-content');
 		sidebar.classList.toggle('active');
-    	main.classList.toggle('shifted'); 
-}
-
-function abrirModal(pagina, titulo) {
-	document.getElementById('modalTitle').innerText = titulo;
-
-	fetch(pagina)
-	.then(response => response.text())
-	.then(data => {
-		document.getElementById('modalContent').innerHTML = data;
-		document.getElementById('modalOverlay').classList.add('active');
-	});
-}
-
-function fecharModal() {
-	document.getElementById('modalOverlay').classList.remove('active');
-	document.getElementById('modalContent').innerHTML = '';
-}
+		main.classList.toggle('shifted'); 
+	}
 </script>

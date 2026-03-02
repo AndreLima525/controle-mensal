@@ -130,10 +130,6 @@ body {
     color: #fff;
 }
 
-.dashboard {
-    padding: 30px;
-}
-
 /* GRID RESUMO */
 .cards-resumo {
     display: grid;
@@ -215,16 +211,15 @@ body {
 }
 
 .main-content {
-    margin-left: 250px; /* mesma largura da sidebar */
-    padding: 30px;
+    margin-left: 250px;
+    padding: 40px;
     min-height: 100vh;
     background-color: #f4f6fb;
 }
 
 .dashboard {
-    display: flex;
-    flex-direction: column;
-    gap: 30px; /* 👈 espaçamento vertical entre os blocos */
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
 /* MOBILE RESPONSIVO */
@@ -270,91 +265,10 @@ body {
     }
 }
 
-/* OVERLAY */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 9999;
-}
-
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* CONTAINER */
-.modal-container {
-    background: #ffffff;
-    width: 90%;
-    max-width: 950px;
-    border-radius: 18px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-    transform: translateY(40px) scale(0.95);
-    transition: all 0.3s ease;
+.dashboard {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-}
-
-.modal-overlay.active .modal-container {
-    transform: translateY(0) scale(1);
-}
-
-/* HEADER *//* HEADER MAIS FINO E MODERNO */
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 18px; /* menor altura */
-    background: linear-gradient(135deg, #1e293b, #0f172a); /* tira aquele degradê pesado */
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.modal-header h1 {
-    font-size: 20px; /* menor */
-    font-weight: 500; /* mais leve */
-    color: white;
-    margin: 0;
-}
-
-/* BOTÃO FECHAR MAIS CLEAN */
-.modal-header button {
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    color: #64748b;
-    transition: 0.2s ease;
-}
-
-.modal-header button:hover {
-    color: #ef4444;
-    transform: scale(1.1);
-}
-
-/* BODY */
-.modal-body {
-    padding: 25px;
-    max-height: 75vh;
-    overflow-y: auto;
-    background: #f8fafc;
-}
-
-/* SCROLL CUSTOM */
-.modal-body::-webkit-scrollbar {
-    width: 6px;
-}
-
-.modal-body::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
+    gap: 30px;  
+    width: 100%;
+    margin-left: 21px;
 }

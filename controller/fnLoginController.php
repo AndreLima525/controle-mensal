@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	if (!empty($dados)) {
 
+		$idUsuario   = $dados['idUsuario'];
 		$nome   = $dados['nomeUsuario'];
 		$usuario = $dados['login'];
 		$senha   = $dados['senha'];
@@ -22,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			
 			session_start();
 
+			$_SESSION['idUsuario'] = $idUsuario;
 			$_SESSION['usuario'] = $nome;
 			$_SESSION['acesso'] = $acesso;
 

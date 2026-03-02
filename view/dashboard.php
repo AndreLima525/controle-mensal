@@ -26,6 +26,11 @@ include_once('../controller/sair.php');
 
 		<ul class="menu">
 
+			<li class="menu-usuario">
+				<i class="fa-solid fa-circle-user"></i>
+				<span><?php echo $_SESSION['usuario']; ?></span>
+			</li>
+			
 			<li>
 				<a href="?pagina=home">
 					<i class="fa-solid fa-gauge"></i>
@@ -84,36 +89,36 @@ include_once('../controller/sair.php');
 			
 			
 
-				<?php
-				$pagina = $_GET['pagina'] ?? 'home';
+			<?php
+			$pagina = $_GET['pagina'] ?? 'home';
 
-				switch($pagina){
+			switch($pagina){
 
-					case 'incluir':
-					include 'modalIncluir.php';
-					break;
+				case 'incluir':
+				include 'modalIncluir.php';
+				break;
 
-					case 'consultar':
-					include 'consultarDespesas.php';
-					break;
+				case 'consultar':
+				include 'consultarDespesas.php';
+				break;
 
-					case 'caixinha':
-					include 'modalCaixinha.php';
-					break;
+				case 'caixinha':
+				include 'modalCaixinha.php';
+				break;
 
-					case 'relatorios':
-					include 'modalRelatorios.php';
-					break;
+				case 'relatorios':
+				include 'modalRelatorios.php';
+				break;
 
-					case 'config':
-					include 'modalConfig.php';
-					break;
+				case 'config':
+				include 'modalConfig.php';
+				break;
 
-					default:
-					include 'home.php';
-					break;
-				}
-				?>
+				default:
+				include 'home.php';
+				break;
+			}
+			?>
 
 			
 		</div>

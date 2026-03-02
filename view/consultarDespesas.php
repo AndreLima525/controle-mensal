@@ -1,3 +1,8 @@
+<?php
+include_once('../model/fnGetAux.php');
+include_once('../controller/fnConsultarDespesasController.php');
+?>
+
 <link rel="stylesheet" type="text/css" href="../styles/stylePages.css">
 <div class="page-header">
     <h2>
@@ -11,21 +16,42 @@
     <form class="form-grid" method="POST">
 
         <div class="form-group">
-            <label>Data</label>
-            <input type="date" name="data">
+            <label>Data Início</label>
+            <input type="date" name="DT_ConsultaI">
+        </div>
+
+        <div class="form-group">
+            <label>Data Término</label>
+            <input type="date" name="DT_ConsultaT">
         </div>
 
         <div class="form-group">
             <label>Categoria</label>
+            
             <select name="categoria">
-                <option disabled selected> -- Selecione -- </option>
+                <option value="" disabled selected> -- Selecione -- </option>
+
+                <?php foreach ($dadosCategorias as $dados): ?>
+                    <option value="<?= $dados['idCategoria']; ?>">
+                        <?= $dados['dsCategoria']; ?>
+                    </option>
+                <?php endforeach; ?>
+
             </select>
+            
         </div>
 
         <div class="form-group">
             <label>Prioridade</label>
+
             <select name="prioridade">
-                <option disabled selected> -- Selecione -- </option>
+                <option value="" disabled selected> -- Selecione -- </option>
+
+                <?php foreach ($dadosPrioridades as $dados): ?>
+                    <option value="<?= $dados['idPrioridade']; ?>">
+                        <?= $dados['dsPrioridade']; ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
         </div>
 

@@ -80,30 +80,28 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.userLogado {
-    background-color: rgba(255,255,255,0.05);
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 30px;
+.menu-usuario {
+    list-style: none;
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.userLogado i {
-    font-size: 26px;
-    color: #4cc9f0;
-}
-
-.userLogado p {
-    margin: 0;
-    font-size: 13px;
-    color: #cbd5e1;
-}
-
-.userLogado strong {
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
     color: #ffffff;
     font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+    cursor: default;
+}
+
+.menu-usuario i {
+    font-size: 18px;
+    color: #38bdf8; /* azul moderno */
+}
+
+.menu-usuario:hover {
+    background: rgba(255,255,255,0.1);
 }
 
 .divider {

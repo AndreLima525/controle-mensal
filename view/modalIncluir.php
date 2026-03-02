@@ -1,3 +1,10 @@
+<?php 
+
+	include_once('../model/fnGetAux.php');
+
+?>
+
+
 <link rel="stylesheet" type="text/css" href="../styles/stylePages.css">
 <div class="page-header">
 	<h2>
@@ -18,15 +25,28 @@
 		<div class="form-group">
 			<label>Categoria</label>
 			<select name="categoria">
-				<option disabled selected> -- Selecione -- </option>
-			</select>
+                <option value="" disabled selected> -- Selecione -- </option>
+
+                <?php foreach ($dadosCategorias as $dados): ?>
+                    <option value="<?= $dados['idCategoria']; ?>">
+                        <?= $dados['dsCategoria']; ?>
+                    </option>
+                <?php endforeach; ?>
+
+            </select>
 		</div>
 
 		<div class="form-group">
 			<label>Prioridade</label>
 			<select name="prioridade">
-				<option disabled selected> -- Selecione -- </option>
-			</select>
+                <option value="" disabled selected> -- Selecione -- </option>
+
+                <?php foreach ($dadosPrioridades as $dados): ?>
+                    <option value="<?= $dados['idPrioridade']; ?>">
+                        <?= $dados['dsPrioridade']; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
 		</div>
 
 		<div class="form-group">

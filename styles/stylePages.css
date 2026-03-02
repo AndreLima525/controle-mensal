@@ -78,6 +78,45 @@
     box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.2);
 }
 
+/* TEXTAREA */
+.form-group textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    outline: none;
+    transition: 0.2s ease;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 100px;
+
+}
+
+.form-group textarea:focus {
+    border-color: #4cc9f0;
+    box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.2);
+}
+
+.form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* textarea ocupar 100% */
+.full-width {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/*.full-width textarea {
+    width: 100%;
+}*/
+
+/* centralizar botões */
+.form-actions.center {
+    justify-content: center;
+    margin-top: 25px;
+}
+
 /* BOTÕES */
 .form-actions {
     display: flex;
@@ -119,25 +158,141 @@
     background: #cbd5e1;
 }
 
-/* RESPONSIVO */
+/* BOTÃO VOLTAR */
+.btn-voltar {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+}
+
+.btn-voltar:hover {
+    background: #e2e8f0;
+    transform: translateY(-1px);
+}
+
+.card-lista {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    
+}
+
+.tabela-financeiro {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.tabela-financeiro thead {
+    background: #1e293b; /* azul escuro moderno */
+    color: #ffffff;
+}
+
+.tabela-financeiro th {
+    padding: 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.tabela-financeiro td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #334155;
+}
+
+.tabela-financeiro tbody tr:hover {
+    background: #f8fafc;
+    transition: 0.2s;
+}
+
+.valor {
+    font-weight: 600;
+    color: #16a34a; /* verde financeiro */
+}
+
+.acoes {
+    display: flex;
+    gap: 8px;
+}
+
+/* Botões */
+.btn-editar,
+.btn-excluir {
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* Editar */
+.btn-editar {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-editar:hover {
+    background: #2563eb;
+}
+
+/* Excluir */
+.btn-excluir {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-excluir:hover {
+    background: #dc2626;
+}
+
+/* ============================= */
+/* MOBILE - ESTILO APP FINANCEIRO */
+/* ============================= */
+
 @media (max-width: 768px) {
 
-    .page-header {
-
-        margin:1px;
+    .tabela-financeiro thead {
+        display: none;
     }
 
-    .card {
-        padding: 20px;
-    }
-
-    .form-actions {
-        flex-direction: column;
+    .tabela-financeiro,
+    .tabela-financeiro tbody,
+    .tabela-financeiro tr,
+    .tabela-financeiro td {
+        display: block;
         width: 100%;
     }
 
-    .btn {
-        width: 100%;
-        justify-content: center;
+    .tabela-financeiro tr {
+        background: #ffffff;
+        margin-bottom: 12px;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        position: relative;
     }
+
+    .data,
+    .categoria,
+    .acoes {
+        display: none;
+    }
+
+    .descricao {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 5px;
+    }
+
+    .valor {
+        font-size: 18px;
+        font-weight: bold;
+        color: #16a34a;
+    }
+
 }

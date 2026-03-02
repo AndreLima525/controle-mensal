@@ -66,12 +66,15 @@ include_once('../controller/sair.php');
 				</a>
 			</li>
 
-			<li>
-				<a href="?pagina=config">
-					<i class="fa-solid fa-gear"></i>
-					<span>Configurações</span>
-				</a>
-			</li>
+			<?php if ($_SESSION['acesso'] == 1):?>
+				<li>
+
+					<a href="?pagina=config">
+						<i class="fa-solid fa-gear"></i>
+						<span>Configurações</span>
+					</a>
+				</li>
+			<?php endif;?>
 			<hr class="divider">
 			<li class="logout-item">
 				<a href="../controller/sair.php?sair">

@@ -252,6 +252,24 @@
     background: #dc2626;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+}
+
 /* ============================= */
 /* MOBILE - ESTILO APP FINANCEIRO */
 /* ============================= */

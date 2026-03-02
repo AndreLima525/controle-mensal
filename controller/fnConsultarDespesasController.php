@@ -20,7 +20,7 @@ if (isset($_POST['pesquisar'])) {
 }
 
 // Sempre executa a busca
-$dados = getDespesasFiltradas(
+$dadosDespesas = getDespesasFiltradas(
     $usuarioLogin,
     $DT_ConsultaI,
     $DT_ConsultaT,

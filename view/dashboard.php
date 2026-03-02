@@ -69,7 +69,7 @@ include_once('../controller/sair.php');
 			</li>
 			<hr class="divider">
 			<li class="logout-item">
-				<a href="../controller/sair.php">
+				<a href="../controller/sair.php?sair">
 					<i class="fa-solid fa-right-from-bracket"></i>
 					<span>Sair</span>
 				</a>

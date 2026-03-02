@@ -13,6 +13,18 @@ body {
     align-items: center;
 }
 
+ img {
+    display: block;
+    margin: 0 auto 30px auto;
+    width: 130px;
+    object-fit: contain;
+    transition: 0.3s ease;
+}
+
+ img:hover {
+    transform: scale(1.05);
+}
+
 /* CARD */
 .card {
     width: 400px;

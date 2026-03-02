@@ -1,5 +1,5 @@
 <?php
-	require_once('../controller/fnLoginController.php');
+require_once('../controller/fnLoginController.php');
 
 ?>
 
@@ -14,25 +14,31 @@
 <body>
 	<div class="container"> 
 		
-			<div class="card">
+		<div class="card">
 
-				<h1>Controle de Gastos</h1>
+			<div class="logo">
+				<center>
+					<img src="../images/logoAtomtech.jpeg" width="120px">
+				</center> 
+			</div> <br>
 
-				<form method="POST">
-						<label> Usuário </label>
-						<input type="text" name="usuario" required>
+			<h1>Controle de Gastos</h1>
 
-						<label> Senha </label>
-						<input type="password" name="senha" required>
+			<form method="POST">
+				<label> Usuário </label>
+				<input type="text" name="usuario" required>
 
-						<button> Entrar </button>
+				<label> Senha </label>
+				<input type="password" name="senha" required>
 
-						<hr>
-						<a href="" class="forgot"> Esqueceu sua senha? </a>
-					</form>
+				<button> Entrar </button>
 
-				</div>
+				<hr>
+				<a href="" class="forgot"> Esqueceu sua senha? </a>
+			</form>
 
-			
-		</body>
-		</html>
+		</div>
+
+
+	</body>
+	</html>

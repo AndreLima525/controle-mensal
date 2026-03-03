@@ -10,6 +10,7 @@ include_once('../controller/sair.php');
 	<title>Dashboard</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="../styles/styleDashboard.css">
+	<link rel="icon" type="image/jpeg" href="../images/logoAtomtech.jpeg">
 </head>
 <body>
 

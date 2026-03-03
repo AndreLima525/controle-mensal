@@ -10,6 +10,7 @@ require_once('../controller/fnLoginController.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Página Inicial</title>
 	<link rel="stylesheet" type="text/css" href="../styles/styleIndex.css">
+	<link rel="icon" type="image/jpeg" href="../images/logoAtomtech.jpeg">
 </head>
 <body>
 	<div class="container"> 

@@ -20,7 +20,7 @@ require_once('../controller/fnLoginController.php');
 				<center>
 					<img src="../images/logoAtomtech.jpeg" width="120px">
 				</center> 
-			</div> <br>
+			</div>
 
 			<h1>Controle de Gastos</h1>
 

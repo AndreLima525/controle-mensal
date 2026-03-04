@@ -52,7 +52,7 @@ include_once('../controller/fnIncluirDespesaController.php');
 
     <div class="form-group">
         <label>Valor - R$</label>
-        <input type="text" name="valorDespesa" required>
+        <input type="text" name="valorDespesa" placeholder="0,00" required>
     </div>
 
     <div class="form-group full-width">

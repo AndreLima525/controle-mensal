@@ -25,7 +25,7 @@ include_once('../controller/fnIncluirCaixinhaController.php');
 
 		<div class="form-group">
 			<label>Valor - R$</label>
-			<input type="text" name="valorDeposito" required>
+			<input type="text" name="valorDeposito" placeholder="0,00" required>
 		</div>
 
 		<div class="form-group">

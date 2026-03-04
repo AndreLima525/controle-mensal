@@ -1,8 +1,11 @@
 <?php
-    
+
 require_once('conn.php');
 
 $usuarioLogin = $_SESSION['idUsuario'];
+
+date_default_timezone_set('America/Sao_Paulo');
+$dataAtual = date('Y-m-d');
 
 function buscarCategorias() {
     global $pdo;
@@ -14,6 +17,8 @@ function buscarCategorias() {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+$dadosCategorias = buscarCategorias();
+
 function buscarPrioridades() {
     global $pdo;
 
@@ -24,18 +29,25 @@ function buscarPrioridades() {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+$dadosPrioridades = buscarPrioridades();
+
 function buscarPix($usuarioLogin) {
     global $pdo;
 
     $sqlPix = "SELECT * FROM dadospix WHERE idUsuario = :usuario";
     $params = [':usuario' => $usuarioLogin];
     $stmt = $pdo->prepare($sqlPix);
-    $stmt->execute();
+    $stmt->execute($params);
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-    $dadosCategorias = buscarCategorias();
-    $dadosPrioridades = buscarPrioridades();
+$dadosPix = buscarPix($usuarioLogin); 
+
+foreach ($dadosPix as $dado) {
+    
+    $idPix = $dado['idPix'];
+    $dsPix = $dado['dsPix'];
+}
 
 ?>

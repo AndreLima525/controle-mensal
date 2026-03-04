@@ -20,7 +20,7 @@ include_once('../controller/fnIncluirDespesaController.php');
 
     <div class="form-group">
         <label>Data</label>
-        <input type="date" name="data" required>
+        <input type="date" name="data" required value="<?= $dataAtual ?>">
     </div>
 
     <div class="form-group">

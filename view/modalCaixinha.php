@@ -33,7 +33,7 @@ include_once('../controller/fnIncluirCaixinhaController.php');
 			<label>Chave Pix</label>
 
 			<div class="input-wrapper">
-				<input type="text" id="chavePix" readonly
+				<input type="text" id="chavePix" disabled
 				value="<?php if (isset($dsPix)) { echo $dsPix; } else { echo '** Chave não Cadastrada **'; } ?>">
 
 				<input type="hidden" name="idPix" value="<?php if (isset($idPix)) { echo $idPix; } ?>">

@@ -9,7 +9,7 @@ include_once('../controller/fnIncluirCaixinhaController.php');
 <link rel="stylesheet" type="text/css" href="../styles/stylePages.css">
 <div class="page-header">
 	<h2>
-		Incluir Novo Depósito <?php  ?>
+		Incluir Novo Depósito
 	</h2>
 </div>
 
@@ -25,7 +25,7 @@ include_once('../controller/fnIncluirCaixinhaController.php');
 
 		<div class="form-group">
 			<label>Valor - R$</label>
-			<input type="text" name="valorDespesa" required>
+			<input type="text" name="valorDeposito" required>
 		</div>
 
 		<div class="form-group">
@@ -33,8 +33,10 @@ include_once('../controller/fnIncluirCaixinhaController.php');
 			<label>Chave Pix</label>
 
 			<div class="input-wrapper">
-				<input type="text" id="chavePix" disabled
+				<input type="text" id="chavePix" readonly
 				value="<?php if (isset($dsPix)) { echo $dsPix; } else { echo '** Chave não Cadastrada **'; } ?>">
+
+				<input type="hidden" name="idPix" value="<?php if (isset($idPix)) { echo $idPix; } ?>">
 
 				<button type="button" class="btn-copy" title="Copiar" onclick="copiarTexto()">
 					<i class="fa-regular fa-copy"></i>
@@ -44,13 +46,13 @@ include_once('../controller/fnIncluirCaixinhaController.php');
 		</div>
 
 		<div class="form-group">
-			<label>Valor na Caixinha</label>
-			<input type="text" name="" disabled value="">
+			<label>Valor Guardado</label>
+			<input type="text" name="" disabled value="<?php echo "R$ " . number_format($totalCaixinha, 2, ',', '.');?>">
 		</div>
 
 		<div class="form-group full-width">
 			<label>Descrição</label>
-			<textarea name="dsDespesa" rows="4" placeholder="Digite a descrição..." required></textarea>
+			<textarea name="dsDeposito" rows="4" placeholder="Digite a descrição..." required></textarea>
 		</div>
 
 		<div class="form-actions center">

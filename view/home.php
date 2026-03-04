@@ -1,3 +1,9 @@
+<?php
+	
+	include_once('../model/fnGetAux.php');
+
+?>
+
 <!-- CARDS RESUMO -->
 <div class="cards-resumo">
 
@@ -17,7 +23,7 @@
 		</div>
 		<div class="card-info">
 			<h3>Total na Caixinha</h3>
-			<p>R$ 5.800,00</p>
+			<p><?php echo "R$ " . number_format($totalCaixinha, 2, ',', '.');?></p>
 		</div>
 	</div>
 

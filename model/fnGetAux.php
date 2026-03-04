@@ -45,9 +45,34 @@ function buscarPix($usuarioLogin) {
 $dadosPix = buscarPix($usuarioLogin); 
 
 foreach ($dadosPix as $dado) {
-    
+
     $idPix = $dado['idPix'];
     $dsPix = $dado['dsPix'];
 }
+
+function buscarCaixinhas($usuarioLogin) {
+    global $pdo;
+
+    $sqlCaixinhas = "SELECT * FROM caixinhas TC 
+                     INNER JOIN dadospix DP ON TC.idPix = DP.idPix 
+                     INNER JOIN usuarios US ON US.idUsuario = DP.idUsuario
+                     WHERE DP.idUsuario = :usuario";
+
+    $params = [':usuario' => $usuarioLogin];
+    $stmt = $pdo->prepare($sqlCaixinhas);
+    $stmt->execute($params);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+$dadosCaixinhas = buscarCaixinhas($usuarioLogin);
+
+$totalCaixinha = 0;
+
+foreach ($dadosCaixinhas as $dado) {
+   
+     $totalCaixinha += (float) $dado['valorDeposito'];
+}
+
 
 ?>

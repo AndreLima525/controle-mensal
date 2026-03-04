@@ -2,7 +2,7 @@
 
 include_once('../model/fnGetAux.php');
 include_once('../controller/fnIncluirCaixinhaController.php');
-			
+
 ?>
 
 
@@ -21,38 +21,66 @@ include_once('../controller/fnIncluirCaixinhaController.php');
 		<div class="form-group">
 			<label>Data</label>
 			<input type="date" name="data" required value="<?= $dataAtual ?>">
-	</div>
+		</div>
 
-	<div class="form-group">
-		<label>Valor - R$</label>
-		<input type="text" name="valorDespesa" required>
-	</div>
+		<div class="form-group">
+			<label>Valor - R$</label>
+			<input type="text" name="valorDespesa" required>
+		</div>
 
-	<div class="form-group">
-		<label>Chave Pix</label>
-		<input type="text" name="" disabled value="<?php if (isset($dsPix)) {echo $dsPix;} else {echo "** Chave não Cadastrada **";} ?>">
-	</div>
+		<div class="form-group">
 
-	<div class="form-group">
-		<label>Valor na Caixinha</label>
-		<input type="text" name="" disabled value="">
-	</div>
+			<label>Chave Pix</label>
 
-	<div class="form-group full-width">
-		<label>Descrição</label>
-		<textarea name="dsDespesa" rows="4" placeholder="Digite a descrição..." required></textarea>
-	</div>
+			<div class="input-wrapper">
+				<input type="text" id="chavePix" disabled
+				value="<?php if (isset($dsPix)) { echo $dsPix; } else { echo '** Chave não Cadastrada **'; } ?>">
 
-	<div class="form-actions center">
-		<a href="../view/dashboard.php" class="btn btn-voltar" name="voltar">
-			<i class="fa-solid fa-arrow-left"></i> Cancelar
-		</a>
+				<button type="button" class="btn-copy" title="Copiar" onclick="copiarTexto()">
+					<i class="fa-regular fa-copy"></i>
+				</button>
+			</div>
 
-		<button type="submit" class="btn btn-primary" name="novo">
-			<i class="fa-solid fa-wallet"></i> Incluir Depósito
-		</button>
-	</div>
+		</div>
 
-</form>
+		<div class="form-group">
+			<label>Valor na Caixinha</label>
+			<input type="text" name="" disabled value="">
+		</div>
+
+		<div class="form-group full-width">
+			<label>Descrição</label>
+			<textarea name="dsDespesa" rows="4" placeholder="Digite a descrição..." required></textarea>
+		</div>
+
+		<div class="form-actions center">
+			<a href="../view/dashboard.php" class="btn btn-voltar" name="voltar">
+				<i class="fa-solid fa-arrow-left"></i> Cancelar
+			</a>
+
+			<button type="submit" class="btn btn-primary" name="novo">
+				<i class="fa-solid fa-wallet"></i> Incluir Depósito
+			</button>
+		</div>
+
+	</form>
 
 </div>
+
+	<script>
+		function copiarTexto() {
+			const input = document.getElementById('chavePix');
+
+			navigator.clipboard.writeText(input.value).then(() => {
+				const botao = document.querySelector('.btn-copy');
+				botao.innerHTML = '<i class="fa-solid fa-check"></i>';
+				botao.style.background = '#16a34a';
+
+				setTimeout(() => {
+					botao.innerHTML = '<i class="fa-regular fa-copy"></i>';
+					botao.style.background = '#2563eb';
+				}, 4000);
+			});
+		}
+</script>
+

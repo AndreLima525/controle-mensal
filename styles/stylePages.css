@@ -270,6 +270,42 @@
     max-width: 90%;
 }
 
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* espaço para o botão dentro do input */
+    box-sizing: border-box;
+}
+
+ .btn-copy {
+    position: absolute;
+    right: 5px;           /* colado na borda direita */
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+ .btn-copy:hover {
+    background: #1d4ed8;
+}
+
+ .btn-copy:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
 /* ============================= */
 /* MOBILE - ESTILO APP FINANCEIRO */
 /* ============================= */

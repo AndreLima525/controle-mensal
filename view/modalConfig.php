@@ -40,16 +40,12 @@ include_once('../controller/fnConfigController.php');
 				<button type="submit" class="btn btn-secondary" name="pesquisar">
 					<i class="fa-solid fa-magnifying-glass"></i> Pesquisar
 				</button>
-				
+
 				<button type="submit" class="btn btn-primary" name="novo">
 					<i class="fa-solid fa-plus-circle"></i> Novo Usuário
 				</button>
 			</div>
 		</div>
-
-
-
-
 	</form>
 
 </div>

@@ -3,7 +3,7 @@
 	include_once('../model/fnGetAux.php');
 
 ?>
-<link rel="stylesheet" type="text/css" href="../styles/stylePages.css">
+
 <!-- CARDS RESUMO -->
 <div class="cards-resumo">
 
@@ -22,7 +22,7 @@
 			<i class="fa-solid fa-wallet"></i>
 		</div>
 		<div class="card-info">
-			<h3>Total na Caixinha</h3>
+			<h3>Total na Carteira</h3>
 			<p><?php echo "R$ " . number_format($totalCaixinha, 2, ',', '.');?></p>
 		</div>
 	</div>

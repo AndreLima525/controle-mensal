@@ -144,6 +144,46 @@ body {
 
 }
 
+.card-lista {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: -15px;
+}
+
+.tabela-financeiro {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.tabela-financeiro thead {
+    background: #1e293b; /* azul escuro moderno */
+    color: #ffffff;
+}
+
+.tabela-financeiro th {
+    padding: 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.tabela-financeiro td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #334155;
+}
+
+.tabela-financeiro tbody tr:hover {
+    background: #f8fafc;
+    transition: 0.2s;
+}
+
 /* CARD RESUMO */
 .resumo {
     display: flex;
@@ -183,11 +223,17 @@ body {
     margin: 5px 0 0 0;
 }
 
+
 /* TABELA */
 .lista-despesas table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+       background: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: -15px;
 }
 
 .lista-despesas th {

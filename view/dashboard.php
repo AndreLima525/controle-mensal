@@ -56,7 +56,7 @@ include_once('../controller/sair.php');
 			<li>
 				<a href="?pagina=caixinha">
 					<i class="fa-solid fa-wallet"></i>
-					<span>Caixinha</span>
+					<span>Carteira</span>
 				</a>
 			</li>
 

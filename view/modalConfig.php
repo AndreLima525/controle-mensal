@@ -54,73 +54,86 @@ include_once('../controller/fnConfigController.php');
 	<table class="tabela-financeiro">
 		<thead>
 			<tr>
-				<th>Data</th>
-				<th>Categoria</th>
-				<th>Descrição</th>
-				<th>Valor - R$</th>
-				<th>Ações</th>
+				<th>Nome Do Usuário</th>
+				<th>Nível de Acesso</th>
+				<th>Ações</th> 
 			</tr>
 		</thead>
 		<tbody>
 
-			<?php if (is_array($dadosDespesas) && count($dadosDespesas) > 0): ?>
+			<?php if (is_array($dadosUsuarios) && count($dadosUsuarios) > 0): ?>
 
-			<?php foreach($dadosDespesas as $dadoDespesa): ?>
+			<?php foreach($dadosUsuarios as $dadoUsuario): ?>
 				<tr>
-					<td class="data"><?= date('d-m-Y', strtotime($dadoDespesa['dataDespesa'])); ?></td>
-					<td class="categoria"><?= $dadoDespesa['dsCategoria']; ?></td>
-					<td class="descricao"><?= $dadoDespesa['dsDespesa']; ?></td>
-					<td class="valor">R$ <?= number_format($dadoDespesa['valorDespesa'], 2, ',', '.'); ?></td>
+					
+					<td class="descricao"><?= $dadoUsuario['nomeUsuario']; ?></td>
+					<td class="descricao"><?= $dadoUsuario['dsAcesso']; ?></td>
+
 					<td class="acoes">
 
-						<button class="btn-editar" 
-						data-id="<?= $dadoDespesa['idDespesa']; ?>"
-						data-descricao="<?= $dadoDespesa['dsDespesa']; ?>"
-						data-valor="<?= number_format($dadoDespesa['valorDespesa'], 2, ',', '.'); ?>"
-						data-data="<?= $dadoDespesa['dataDespesa']; ?>">
+						<button class="btn-editar"
+						data-id="<?= $dadoUsuario['idUsuario']; ?>"
+						data-descricao="<?= $dadoUsuario['nomeUsuario']; ?>"
+						data-nivel-acesso="<?= $dadoUsuario['idNivelAcesso']; ?>"
+						data-pix="<?= $dadoUsuario['dsPix']; ?>"
+						data-idpix="<?= $dadoUsuario['idPix']; ?>">
+						
 
-						<i class="fa-solid fa-pen-to-square"></i>
-					</button>
 
-					<a href="../model/deleteDespesaModel.php?id=<?= $dadoDespesa['idDespesa']; ?>" 
-						class="btn-excluir"
-						onclick="return confirm('Deseja realmente excluir esta despesa?');">
-						<i class="fa-solid fa-trash-can"></i>
-					</a>
+					<i class="fa-solid fa-pen-to-square"></i>
+				</button>
 
-				</td>
-			</tr>
-		<?php endforeach; ?>
+				<a href="../model/deleteDespesaModel.php?id=<?= $dadoUsuario['idUsuario']; ?>" 
+					class="btn-excluir"
+					onclick="return confirm('Deseja realmente excluir este Usuário?');">
+					<i class="fa-solid fa-trash-can"></i>
+				</a>
 
-	<?php else: ?>
-		<tr>
-			<td colspan="5">Nenhuma despesa encontrada.</td>
+			</td>
 		</tr>
-	<?php endif; ?>
+	<?php endforeach; ?>
+
+<?php else: ?>
+	<tr>
+		<td colspan="5">Nenhuma despesa encontrada.</td>
+	</tr>
+<?php endif; ?>
 </tbody>
 </table>
 </div>
 
 <div id="modalEditar" class="modal">
 	<div class="modal-content">
-		<h3>Editar Despesa</h3>
 
-		<form action="../model/updateDespesa.php" method="POST">
+		<h3>Editar Usuário</h3>
+
+		<form action="../model/updateUsuario.php" method="POST">
 			<input type="hidden" name="id" id="edit-id">
 
 			<div class="form-group">
-				<label>Descrição</label>
+				<label>Nome do Usuário</label>
 				<input type="text" name="descricao" id="edit-descricao">
 			</div>
 
+			
 			<div class="form-group">
-				<label>Valor</label>
-				<input type="text" name="valor" id="edit-valor">
-			</div>
+				<label>Nível de Acesso</label>
+
+				<select name="idNivelAcesso" id="edit-nivelAcesso" >
+					<option value="" disabled selected> -- Selecione -- </option>
+					<?php foreach($dadosUsuarios as $dadoUsuario): ?>
+						<option value="<?= $dadoUsuario['idNivelAcesso'] ?>"> <?= $dadoUsuario['dsAcesso'] ?></option>
+					<?php endforeach; ?>
+				</select>
+
+			</div>		
 
 			<div class="form-group">
-				<label>Data</label>
-				<input type="date" name="data" id="edit-data">
+				<label>Chave Pix </label>
+				<input type="text" id="edit-pix" name="dsPix"
+				value="<?php if (!empty($dsPix)) { echo $dsPix; } ?>">
+
+				<input type="hidden" name="idPix" value="<?php if (isset($idPix)) { echo $idPix; } ?>">
 			</div>
 
 			<div class="form-actions center">
@@ -135,16 +148,17 @@ include_once('../controller/fnConfigController.php');
 	const modal = document.getElementById("modalEditar");
 
 	document.querySelectorAll(".btn-editar").forEach(btn => {
-		btn.addEventListener("click", function() {
+    btn.addEventListener("click", function() {
 
-			document.getElementById("edit-id").value = this.dataset.id;
-			document.getElementById("edit-descricao").value = this.dataset.descricao;
-			document.getElementById("edit-valor").value = this.dataset.valor;
-			document.getElementById("edit-data").value = this.dataset.data;
+        document.getElementById("edit-id").value = this.dataset.id;
+        document.getElementById("edit-descricao").value = this.dataset.descricao;
+        document.getElementById("edit-nivelAcesso").value = this.dataset.nivelAcesso;
+        document.getElementById("edit-pix").value = this.dataset.pix;
+        document.querySelector("input[name='idPix']").value = this.dataset.idpix;
 
-			modal.style.display = "flex";
-		});
-	});
+        modal.style.display = "flex";
+    });
+});
 
 	function fecharModal() {
 		modal.style.display = "none";

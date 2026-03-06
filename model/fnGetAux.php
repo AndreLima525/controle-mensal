@@ -74,5 +74,28 @@ foreach ($dadosCaixinhas as $dado) {
      $totalCaixinha += (float) $dado['valorDeposito'];
 }
 
+function buscarUsuarios() {
+    global $pdo;
+
+    $sqlUsuarios = "SELECT US.idUsuario,
+                           US.nomeUsuario,
+                           US.idNivelAcesso,
+                           NA.dsAcesso,
+                           DP.idPix,
+                           DP.dsPix
+                    FROM usuarios US
+                    INNER JOIN nivelAcesso NA 
+                        ON US.idNivelAcesso = NA.idNivelAcesso
+                    LEFT JOIN dadospix DP 
+                        ON DP.idUsuario = US.idUsuario";
+
+    $stmt = $pdo->prepare($sqlUsuarios);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+$dadosUsuarios = buscarUsuarios();
+
 
 ?>

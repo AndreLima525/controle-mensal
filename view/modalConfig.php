@@ -1,6 +1,8 @@
 <?php
 include_once('../model/fnGetAux.php');
+include_once('../model/getUsuarios.php');
 include_once('../controller/fnConfigController.php');
+include_once('../controller/protectedConfig.php');
 ?>
 
 <link rel="stylesheet" type="text/css" href="../styles/stylePages.css">
@@ -56,6 +58,7 @@ include_once('../controller/fnConfigController.php');
 			<tr>
 				<th>Nome Do Usuário</th>
 				<th>Nível de Acesso</th>
+				<th>Status</th>
 				<th>Ações</th> 
 			</tr>
 		</thead>
@@ -68,6 +71,7 @@ include_once('../controller/fnConfigController.php');
 					
 					<td class="descricao"><?= $dadoUsuario['nomeUsuario']; ?></td>
 					<td class="descricao"><?= $dadoUsuario['dsAcesso']; ?></td>
+					<td class="descricao"><?php  if($dadoUsuario['stAtivo'] == 1) { echo "Ativo"; } else {echo "Inativo";} ?></td>
 
 					<td class="acoes">
 
@@ -75,19 +79,26 @@ include_once('../controller/fnConfigController.php');
 						data-id="<?= $dadoUsuario['idUsuario']; ?>"
 						data-descricao="<?= $dadoUsuario['nomeUsuario']; ?>"
 						data-nivel-acesso="<?= $dadoUsuario['idNivelAcesso']; ?>"
+						data-stativo="<?= $dadoUsuario['stAtivo']; ?>"
 						data-pix="<?= $dadoUsuario['dsPix']; ?>"
-						data-idpix="<?= $dadoUsuario['idPix']; ?>">
+						data-idpix="<?= $dadoUsuario['idPix']; ?>
+						">
 						
 
 
 					<i class="fa-solid fa-pen-to-square"></i>
 				</button>
 
+				<?php if ($dadoUsuario['stAtivo'] == 1): ?>
+					
+				
 				<a href="../model/deleteDespesaModel.php?id=<?= $dadoUsuario['idUsuario']; ?>" 
 					class="btn-excluir"
 					onclick="return confirm('Deseja realmente excluir este Usuário?');">
 					<i class="fa-solid fa-trash-can"></i>
 				</a>
+
+			<?php endif ?>
 
 			</td>
 		</tr>
@@ -121,8 +132,8 @@ include_once('../controller/fnConfigController.php');
 
 				<select name="idNivelAcesso" id="edit-nivelAcesso" >
 					<option value="" disabled selected> -- Selecione -- </option>
-					<?php foreach($dadosUsuarios as $dadoUsuario): ?>
-						<option value="<?= $dadoUsuario['idNivelAcesso'] ?>"> <?= $dadoUsuario['dsAcesso'] ?></option>
+					<?php foreach($dadosAcesso as $dado): ?>
+						<option value="<?= $dado['idNivelAcesso'] ?>"> <?= $dado['dsAcesso'] ?></option>
 					<?php endforeach; ?>
 				</select>
 
@@ -138,7 +149,10 @@ include_once('../controller/fnConfigController.php');
 
 			<div class="form-actions center">
 				<button type="button" onclick="fecharModal()" class="btn btn-secondary">Cancelar</button>
-				<button type="submit" class="btn btn-primary">Salvar</button>
+					
+				<button type="submit" class="btn btn-primary" id="btn-acao">Salvar</button>
+
+				
 			</div>
 		</form>
 	</div>
@@ -155,6 +169,16 @@ include_once('../controller/fnConfigController.php');
         document.getElementById("edit-nivelAcesso").value = this.dataset.nivelAcesso;
         document.getElementById("edit-pix").value = this.dataset.pix;
         document.querySelector("input[name='idPix']").value = this.dataset.idpix;
+
+        let ativo = this.dataset.stativo;
+
+        let botao = document.getElementById("btn-acao");
+
+        if (ativo == "1") {
+            botao.innerText = "Salvar";
+        } else {
+            botao.innerText = "Reativar Acesso";
+        }
 
         modal.style.display = "flex";
     });

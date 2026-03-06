@@ -29,15 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 			header("location:dashboard.php");
 
+		} elseif ($ativo != 1) {
+			
+			echo "<script>alert('Usuário sem permissão de acesso!');</script>";
+
 		} elseif ($usuarioLogin != $usuario || $senhaLogin != $senha) {
 			
 			echo "<script>alert('Usuário ou senha incorretos!');</script>";
 
-		} elseif ($ativo != 1) {
-			
-			echo "<script>alert('Usuário ou senha incorretos!');</script>";
-
-		}
+		} 
 		
 	} else {
 

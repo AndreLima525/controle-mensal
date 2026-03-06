@@ -9,7 +9,7 @@ $idPix = $_POST['idPix'];
 
 // Atualiza usuário
 $sqlUsuario = "UPDATE usuarios
-               SET nomeUsuario = ?, idNivelAcesso = ?
+               SET nomeUsuario = ?, idNivelAcesso = ?, stAtivo = 1
                WHERE idUsuario = ?";
 
 $stmt = $pdo->prepare($sqlUsuario);

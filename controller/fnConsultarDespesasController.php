@@ -1,6 +1,5 @@
 <?php
 
-require_once('../model/conn.php');
 include_once('../model/fnGetDespesasModel.php');
 
 

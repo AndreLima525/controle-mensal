@@ -1,6 +1,5 @@
 <?php
 include_once('../model/fnGetAux.php');
-include_once('../model/getUsuarios.php');
 include_once('../controller/fnConfigController.php');
 include_once('../controller/protectedConfig.php');
 ?>
@@ -106,7 +105,7 @@ include_once('../controller/protectedConfig.php');
 
 <?php else: ?>
 	<tr>
-		<td colspan="5">Nenhuma despesa encontrada.</td>
+		<td colspan="5">Nenhum usuário encontrado.</td>
 	</tr>
 <?php endif; ?>
 </tbody>

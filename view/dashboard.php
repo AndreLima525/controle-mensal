@@ -99,7 +99,7 @@ include_once('../controller/sair.php');
 			switch($pagina){
 
 				case 'incluir':
-				include 'modalIncluir.php';
+				include 'incluir.php';
 				break;
 
 				case 'consultar':
@@ -107,15 +107,15 @@ include_once('../controller/sair.php');
 				break;
 
 				case 'caixinha':
-				include 'modalCaixinha.php';
+				include 'caixinha.php';
 				break;
 
 				case 'relatorios':
-				include 'modalRelatorios.php';
+				include 'relatorios.php';
 				break;
 
 				case 'config':
-				include 'modalConfig.php';
+				include 'config.php';
 				break;
 
 				default:

@@ -91,9 +91,9 @@ include_once('../controller/protectedConfig.php');
 				<?php if ($dadoUsuario['stAtivo'] == 1): ?>
 					
 				
-				<a href="../model/deleteDespesaModel.php?id=<?= $dadoUsuario['idUsuario']; ?>" 
+				<a href="../model/deleteUsuarioModel.php?id=<?= $dadoUsuario['idUsuario']; ?>" 
 					class="btn-excluir"
-					onclick="return confirm('Deseja realmente excluir este Usuário?');">
+					onclick="return confirm('Deseja desativar o usuário?');">
 					<i class="fa-solid fa-trash-can"></i>
 				</a>
 

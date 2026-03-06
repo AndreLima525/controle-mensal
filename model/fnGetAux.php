@@ -88,7 +88,21 @@ function buscarAcessos() {
 
 $dadosAcesso = buscarAcessos();
 
+function buscarDespesasDash($usuarioLogin) {
 
+     global $pdo;
 
+    $sqlDespesas = "SELECT * FROM despesas DP 
+                    INNER JOIN categorias CT ON DP.idCategoria = CT.idCategoria  
+                    WHERE idUsuario = :usuario ORDER BY DP.dataDespesa DESC LIMIT 5";
+
+    $stmt = $pdo->prepare($sqlDespesas);
+    $stmt->bindValue(":usuario", $usuarioLogin);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+$despesasDash = buscarDespesasDash($usuarioLogin);
 
 ?>

@@ -3,7 +3,7 @@
 	include_once('../model/fnGetAux.php');
 
 ?>
-
+<link rel="stylesheet" type="text/css" href="../styles/stylePages.css">
 <!-- CARDS RESUMO -->
 <div class="cards-resumo">
 
@@ -30,31 +30,27 @@
 </div>
 
 <!-- ÚLTIMAS DESPESAS -->
-<div class="card lista-despesas">
+<div class="card-lista">
 	<h3>Últimas Despesas</h3>
 
-	<table>
+	<table class="tabela-financeiro">
 		<thead>
 			<tr>
-				<th>Descrição</th>
-				<th>Categoria</th>
-				<th>Valor</th>
 				<th>Data</th>
+				<th>Categoria</th>
+				<th>Descrição</th>
+				<th>Valor</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>Supermercado</td>
-				<td>Alimentação</td>
-				<td>R$ 350,00</td>
-				<td>18/02/2026</td>
-			</tr>
-			<tr>
-				<td>Internet</td>
-				<td>Casa</td>
-				<td>R$ 120,00</td>
-				<td>15/02/2026</td>
-			</tr>
+			<?php foreach($despesasDash as $dados):?>
+				<tr>
+					<td><?= date('d-m-Y', strtotime($dados['dataDespesa'])); ?></td>
+					<td><?= $dados['dsCategoria']; ?></td>
+					<td><?= $dados['dsDespesa']; ?></td>
+					<td>R$ <?= number_format($dados['valorDespesa'], 2, ',', '.'); ?></td>
+				</tr>
+			<?php endforeach;?>
 		</tbody>
 	</table>
 </div>

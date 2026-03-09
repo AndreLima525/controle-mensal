@@ -2,6 +2,7 @@
 	include_once('../model/fnGetAux.php');
 ?>
 
+<link rel="icon" type="image/jpeg" href="../images/logoAtomtech.jpeg">
 <link rel="stylesheet" type="text/css" href="../styles/stylePages.css">
 <div class="page-header">
 	<h2>

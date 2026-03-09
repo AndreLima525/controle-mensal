@@ -12,5 +12,6 @@
 	} elseif (!isset($_SESSION['usuario'])) {
 
 		header("location:../view/index.php");
-	}
+
+	} 
 ?>

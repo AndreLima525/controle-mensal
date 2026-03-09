@@ -252,6 +252,63 @@
     background: #dc2626;
 }
 
+.card-senha{
+    width: 400px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.modal-content-senha{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-group-senha{
+    margin-bottom: 18px;
+}
+
+.form-group-senha label{
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: inherit;
+}
+
+.form-group-senha input{
+    width: 380px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.form-group-senha input:focus{
+    border-color: #3498db;
+    outline: none;
+}
+
+.btn-senha{
+    padding: 10px;
+    border: none;
+    background: #3498db;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.btn-senha:hover {
+    background-color: darkblue;
+
+}
 .modal {
     display: none;
     position: fixed;

@@ -18,17 +18,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$senha   = $dados['senha'];
 		$acesso  = $dados['idNivelAcesso'];
 		$ativo   = $dados['stAtivo'];
+		$idPAcesso   = $dados['idPAcesso'];
 
 		if ($usuarioLogin == $usuario && password_verify($senhaLogin, $senha) && $ativo == 1) {
-			
+
 			session_start();
 
 			$_SESSION['idUsuario'] = $idUsuario;
 			$_SESSION['usuario'] = $nome;
 			$_SESSION['acesso'] = $acesso;
 
-			header("location:dashboard.php");
+			if ($idPAcesso != 0 ) {
 
+				header("location:dashboard.php");
+
+			} else {
+				header("location:configSenha.php");
+			}
+			
 		} elseif ($ativo != 1) {
 			
 			echo "<script>alert('Usuário sem permissão de acesso!');</script>";

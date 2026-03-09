@@ -1,6 +1,6 @@
 <?php
-	
-	include_once('../model/fnGetAux.php');
+
+include_once('../model/fnGetAux.php');
 
 ?>
 
@@ -43,16 +43,22 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach($despesasDash as $dados):?>
-				<tr>
-					<td><?= date('d-m-Y', strtotime($dados['dataDespesa'])); ?></td>
-					<td><?= $dados['dsCategoria']; ?></td>
-					<td><?= $dados['dsDespesa']; ?></td>
-					<td>R$ <?= number_format($dados['valorDespesa'], 2, ',', '.'); ?></td>
-				</tr>
-			<?php endforeach;?>
-		</tbody>
-	</table>
+			<?php if (!empty($despesasDash)): ?>
+				<?php foreach($despesasDash as $dados):?>
+					<tr>
+						<td><?= date('d-m-Y', strtotime($dados['dataDespesa'])); ?></td>
+						<td><?= $dados['dsCategoria']; ?></td>
+						<td><?= $dados['dsDespesa']; ?></td>
+						<td>R$ <?= number_format($dados['valorDespesa'], 2, ',', '.'); ?></td>
+					</tr>
+				<?php endforeach;?>
+			<?php else: ?>
+			<tr>
+				<td colspan="5">Nenhuma despesa encontrada.</td>
+			</tr>
+			<?php endif; ?>
+	</tbody>
+</table>
 </div>
 
 

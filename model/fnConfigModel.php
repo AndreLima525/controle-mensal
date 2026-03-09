@@ -10,6 +10,7 @@ function buscarUsuariosFiltrados($nomeUsuario = null, $stAtivo = null) {
         US.idNivelAcesso,
         US.stAtivo,
         NA.dsAcesso,
+        DP.dsBancoPix,
         DP.idPix,
         DP.dsPix
     FROM usuarios US
@@ -41,40 +42,66 @@ function buscarUsuariosFiltrados($nomeUsuario = null, $stAtivo = null) {
 
 function inserirUsuario($pdo, $dados, $dadosPix) {
 
-    $sql = "INSERT INTO usuarios (
-                nomeUsuario,
-                login,
-                senha,
-                idNivelAcesso
-            ) VALUES (
-                :nomeUsuario,
-                :login,
-                :senha,
-                :idNivelAcesso
-            )";
+    try {
 
-    $stmt = $pdo->prepare($sql);
+        $pdo->beginTransaction();
 
-    return $stmt->execute([
-        ':nomeUsuario'    => $dados['nomeUsuario'],
-        ':login'  => $dados['login'],
-        ':senha' => $dados['senha'],
-        ':idNivelAcesso'  => $dados['idNivelAcesso']
-    ]);
+        // INSERE USUÁRIO
+        $sql = "INSERT INTO usuarios (
+                    nomeUsuario,
+                    login,
+                    senha,
+                    idNivelAcesso
+                ) VALUES (
+                    :nomeUsuario,
+                    :login,
+                    :senha,
+                    :idNivelAcesso
+                )";
 
-    $idUsuario = $pdo->lastInsertId();
+        $stmt = $pdo->prepare($sql);
 
-     $sqlPix = "INSERT INTO dadospix VALUES (:dsBancoPix, :dsPix, :idUsuario)";
-
-      $stmtPix = $pdo->prepare($sqlPix);
-
-        $stmtPix->execute([
-
-            'dsBancoPix' => $dadosPix['dsBancoPix'],
-            ':dsPix'     => $dadosPix['dsPix'],
-            ':idUsuario' => $idUsuario
-            
+        $stmt->execute([
+            ':nomeUsuario'   => $dados['nomeUsuario'],
+            ':login'         => $dados['login'],
+            ':senha'         => $dados['senha'],
+            ':idNivelAcesso' => $dados['idNivelAcesso']
         ]);
-}   
+
+        // PEGA O ID GERADO
+        $idUsuario = $pdo->lastInsertId();
+
+        // INSERE PIX
+        if (!empty($dadosPix['dsPix'])) {
+
+            $sqlPix = "INSERT INTO dadospix (
+                           dsBancoPix,
+                           dsPix,
+                           idUsuario
+                       ) VALUES (
+                           :dsBancoPix,
+                           :dsPix,
+                           :idUsuario
+                       )";
+
+            $stmtPix = $pdo->prepare($sqlPix);
+
+            $stmtPix->execute([
+                ':dsBancoPix' => $dadosPix['dsBancoPix'] ?? null,
+                ':dsPix'      => $dadosPix['dsPix'],
+                ':idUsuario'  => $idUsuario
+            ]);
+        }
+
+        $pdo->commit();
+
+        return true;
+
+    } catch (Exception $e) {
+
+        $pdo->rollBack();
+        return false;
+    }
+}
 
 ?>

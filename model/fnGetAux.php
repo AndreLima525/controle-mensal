@@ -47,6 +47,7 @@ $dadosPix = buscarPix($usuarioLogin);
 foreach ($dadosPix as $dado) {
 
     $idPix = $dado['idPix'];
+    $dsBancoPix = $dsPix = $dado['dsBancoPix'];
     $dsPix = $dado['dsPix'];
 }
 

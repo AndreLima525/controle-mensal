@@ -5,6 +5,7 @@ $idUsuario = $_POST['id'];
 $nome = $_POST['descricao'];
 $nivel = $_POST['idNivelAcesso'];
 $pix = $_POST['dsPix'];
+$dsBancoPix = $_POST['dsBancoPix'];
 $idPix = $_POST['idPix'];
 
 // Atualiza usuário
@@ -19,21 +20,21 @@ $stmt->execute([$nome, $nivel, $idUsuario]);
 if(!empty($idPix)){
 
     $sqlPix = "UPDATE dadospix
-               SET dsPix = ?
+               SET  dsBancoPix = ? , dsPix = ?
                WHERE idPix = ?";
 
     $stmt = $pdo->prepare($sqlPix);
-    $stmt->execute([$pix, $idPix]);
+    $stmt->execute([$dsBancoPix, $pix, $idPix]);
 
 }else{
 
     // Caso usuário não tenha pix 
     if(!empty($pix)){
-        $sqlPix = "INSERT INTO dadospix (idUsuario, dsPix)
-                   VALUES (?, ?)";
+        $sqlPix = "INSERT INTO dadospix (idUsuario, dsBancoPix, dsPix)
+                   VALUES (?, ?, ?)";
 
         $stmt = $pdo->prepare($sqlPix);
-        $stmt->execute([$idUsuario, $pix]);
+        $stmt->execute([$idUsuario, $dsBancoPix, $pix]);
     }
 }
 

@@ -2,29 +2,14 @@
 	
 	include_once('../model/fnConfigModel.php');
 
-	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  
-    $nomeUsuario = $_POST['nome'] ?? null;
-    $stAtivo = $_POST['stAtivo'] ?? null;
-    
-    $dadosUsuarios = buscarUsuariosFiltrados( $nomeUsuario, $stAtivo);
-
-} else {
-
-	$nomeUsuario = null;
-	$stAtivo = null;
-	
-	$dadosUsuarios = buscarUsuariosFiltrados( $nomeUsuario, $stAtivo);
-}
-
-if (isset($_POST['novo'])) {
+	if (isset($_POST['novo'])) {
 	
 	$dados = [
 
 		'nomeUsuario'  => $_POST['nomeUsuario'],
 		'login'      => $_POST['login'],
-		'senha'  => $_POST['senha'],		
+		'senha'  => $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT),		
 		'idNivelAcesso'=> $_POST['idNivelAcesso']
 	];
 
@@ -51,4 +36,22 @@ if (isset($_POST['novo'])) {
 		}
 
 }
+
+	if (isset($_POST['pesquisar'])) {
+
+  
+    $nomeUsuario = $_POST['nome'] ?? null;
+    $stAtivo = $_POST['stAtivo'] ?? null;
+    
+    $dadosUsuarios = buscarUsuariosFiltrados( $nomeUsuario, $stAtivo);
+
+} else {
+
+	$nomeUsuario = null;
+	$stAtivo = null;
+	
+	$dadosUsuarios = buscarUsuariosFiltrados( $nomeUsuario, $stAtivo);
+}
+
+
 ?>

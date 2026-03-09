@@ -29,7 +29,10 @@ include_once('../controller/sair.php');
 
 			<li class="menu-usuario">
 				<i class="fa-solid fa-circle-user"></i>
-				<span><?php echo $_SESSION['usuario']; ?></span>
+				<span><?php echo $_SESSION['usuario']; ?></span> 
+
+					<a class="btnAlterarSenha" title="Alterar Senha"> <i class="fa fa-key"></i> </a>
+				
 			</li>
 			
 			<li>

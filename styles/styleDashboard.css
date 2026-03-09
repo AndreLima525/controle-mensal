@@ -266,6 +266,25 @@ body {
     margin: 0 auto;
 }
 
+.btnAlterarSenha{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 35px;
+}
+
+.btnAlterarSenha i:hover{
+    transition:1s;
+    color: #1e1f36;
+}
+
 /* MOBILE RESPONSIVO */
 @media (max-width: 768px) {
 

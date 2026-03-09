@@ -31,7 +31,7 @@ include_once('../controller/sair.php');
 				<i class="fa-solid fa-circle-user"></i>
 				<span><?php echo $_SESSION['usuario']; ?></span> 
 
-					<a href="?pagina=alterSenhaPix" class="btnAlterarSenha" title="Alterar Senha"> <i class="fa fa-key"></i> </a>
+					<a href="?pagina=alterSenhaPix" class="btnAlterarSenha" title="Alterar Senha / Pix"> <i class="fa fa-key"></i> </a>
 				
 			</li>
 			

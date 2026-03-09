@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$acesso  = $dados['idNivelAcesso'];
 		$ativo   = $dados['stAtivo'];
 
-		if ($usuarioLogin == $usuario && $senhaLogin == $senha && $ativo == 1) {
+		if ($usuarioLogin == $usuario && password_verify($senhaLogin, $senha) && $ativo == 1) {
 			
 			session_start();
 

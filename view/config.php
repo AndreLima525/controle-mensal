@@ -130,8 +130,8 @@ include_once('../controller/protectedConfig.php');
 			</div>
 
 			<div class="form-group">
-				<label>Senha</label>
-				<input type="password" name="senha" required>
+				<label>Senha Padrão</label>
+				<input type="text" disabled value="Senha@nova">
 			</div>
 
 			<div class="form-group">

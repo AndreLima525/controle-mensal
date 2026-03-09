@@ -9,7 +9,7 @@
 
 		'nomeUsuario'  => $_POST['nomeUsuario'],
 		'login'      => $_POST['login'],
-		'senha'  => $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT),		
+		'senha'  => password_hash('Senha@nova', PASSWORD_DEFAULT),		
 		'idNivelAcesso'=> $_POST['idNivelAcesso']
 	];
 

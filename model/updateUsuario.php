@@ -3,6 +3,7 @@ require_once('../model/conn.php');
 
 $idUsuario = $_POST['id'];
 $nome = $_POST['descricao'];
+$email = $_POST['email'];
 $nivel = $_POST['idNivelAcesso'];
 $pix = $_POST['dsPix'];
 $dsBancoPix = $_POST['dsBancoPix'];
@@ -10,11 +11,11 @@ $idPix = $_POST['idPix'];
 
 // Atualiza usuário
 $sqlUsuario = "UPDATE usuarios
-               SET nomeUsuario = ?, idNivelAcesso = ?, stAtivo = 1
+               SET nomeUsuario = ?, email = ? , idNivelAcesso = ?, stAtivo = 1
                WHERE idUsuario = ?";
 
 $stmt = $pdo->prepare($sqlUsuario);
-$stmt->execute([$nome, $nivel, $idUsuario]);
+$stmt->execute([$nome, $email, $nivel, $idUsuario]);
 
 // Atualiza PIX
 if(!empty($idPix)){

@@ -77,6 +77,7 @@ include_once('../controller/protectedConfig.php');
 						<button class="btn-editar"
 						data-id="<?= $dadoUsuario['idUsuario']; ?>"
 						data-descricao="<?= $dadoUsuario['nomeUsuario']; ?>"
+						data-email="<?= $dadoUsuario['email']; ?>"
 						data-nivel-acesso="<?= $dadoUsuario['idNivelAcesso']; ?>"
 						data-stativo="<?= $dadoUsuario['stAtivo']; ?>"
 						data-bPix="<?= $dadoUsuario['dsBancoPix']; ?>"
@@ -120,13 +121,20 @@ include_once('../controller/protectedConfig.php');
 <div id="modalNovo" class="modal">
 	<div class="modal-content">
 
-		<h3>Novo Usuário</h3>
+		<center>
+			<h3>Novo Usuário</h3>
+		</center>
 
 		<form method="POST">
 
 			<div class="form-group">
 				<label>Nome do Usuário</label>
 				<input type="text" name="nomeUsuario" required>
+			</div>
+
+			<div class="form-group">
+				<label>E-mail</label>
+				<input type="email" name="email" required>
 			</div>
 
 			<div class="form-group">
@@ -182,7 +190,10 @@ include_once('../controller/protectedConfig.php');
 <div id="modalEditar" class="modal">
 	<div class="modal-content">
 
-		<h3>Editar Usuário</h3>
+		<center>
+			<h3>Editar Usuário</h3>
+		</center>
+		
 
 		<form action="../model/updateUsuario.php" method="POST">
 			<input type="hidden" name="id" id="edit-id">
@@ -190,9 +201,13 @@ include_once('../controller/protectedConfig.php');
 			<div class="form-group">
 				<label>Nome do Usuário</label>
 				<input type="text" name="descricao" id="edit-descricao">
-			</div>
+			</div> <br>
 
-			
+			<div class="form-group">
+				<label>E-mail do Usuário</label>
+				<input type="email" name="email" id="edit-email">
+			</div><br>
+
 			<div class="form-group">
 				<label>Nível de Acesso</label>
 
@@ -203,20 +218,20 @@ include_once('../controller/protectedConfig.php');
 					<?php endforeach; ?>
 				</select>
 
-			</div>		
+			</div>	<br>	
 
 			<div class="form-group">
 				<label>Banco Pix </label>
 				<input type="text" id="edit-bpix" name="dsBancoPix"
 				value="<?php if (!empty($dsBancoPix)) { echo $dsBancoPix; } ?>">
-			</div>
+			</div><br>
 			<div class="form-group">
 				<label>Chave Pix </label>
 				<input type="text" id="edit-pix" name="dsPix"
 				value="<?php if (!empty($dsPix)) { echo $dsPix; } ?>">
 
 				<input type="hidden" name="idPix" value="<?php if (isset($idPix)) { echo $idPix; } ?>">
-			</div>
+			</div><br>
 
 			<div class="form-actions center">
 				<button type="button" onclick="fecharModal()" class="btn btn-secondary">Cancelar</button>
@@ -237,6 +252,7 @@ include_once('../controller/protectedConfig.php');
 
 			document.getElementById("edit-id").value = this.dataset.id;
 			document.getElementById("edit-descricao").value = this.dataset.descricao;
+			document.getElementById("edit-email").value = this.dataset.email;
 			document.getElementById("edit-nivelAcesso").value = this.dataset.nivelAcesso;
 			document.getElementById("edit-bpix").value = this.dataset.bpix;
 			document.getElementById("edit-pix").value = this.dataset.pix;

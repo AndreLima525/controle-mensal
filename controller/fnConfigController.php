@@ -8,6 +8,7 @@
 	$dados = [
 
 		'nomeUsuario'  => $_POST['nomeUsuario'],
+		'email' => $_POST['email'],
 		'login'      => $_POST['login'],
 		'senha'  => password_hash('Senha@nova', PASSWORD_DEFAULT),		
 		'idNivelAcesso'=> $_POST['idNivelAcesso']

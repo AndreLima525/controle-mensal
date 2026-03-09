@@ -7,6 +7,7 @@ function buscarUsuariosFiltrados($nomeUsuario = null, $stAtivo = null) {
     $sql = "SELECT 
         US.idUsuario,
         US.nomeUsuario,
+        US.email,
         US.idNivelAcesso,
         US.stAtivo,
         NA.dsAcesso,
@@ -49,11 +50,13 @@ function inserirUsuario($pdo, $dados, $dadosPix) {
         // INSERE USUÁRIO
         $sql = "INSERT INTO usuarios (
                     nomeUsuario,
+                    email,
                     login,
                     senha,
                     idNivelAcesso
                 ) VALUES (
                     :nomeUsuario,
+                    :email,
                     :login,
                     :senha,
                     :idNivelAcesso
@@ -63,6 +66,7 @@ function inserirUsuario($pdo, $dados, $dadosPix) {
 
         $stmt->execute([
             ':nomeUsuario'   => $dados['nomeUsuario'],
+            ':email'   => $dados['email'],
             ':login'         => $dados['login'],
             ':senha'         => $dados['senha'],
             ':idNivelAcesso' => $dados['idNivelAcesso']

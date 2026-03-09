@@ -1,5 +1,5 @@
 <?php
 
-	echo password_hash('Senha@nova', PASSWORD_DEFAULT);
+	echo password_hash('102030', PASSWORD_DEFAULT);
 
 ?>

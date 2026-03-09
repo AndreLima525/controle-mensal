@@ -110,6 +110,11 @@ include_once('../controller/protectedConfig.php');
 	<?php endif; ?>
 </tbody>
 </table>
+	<div class="paginacao">
+		<button id="prev"><i class="fa-solid fa-angle-left"></i></button>
+		<span id="paginaAtual"></span>
+		<button id="next"><i class="fa-solid fa-angle-right"></i></button>
+	</div>
 </div>
 
 <div id="modalNovo" class="modal">
@@ -278,4 +283,45 @@ include_once('../controller/protectedConfig.php');
 			fecharModalNovo();
 		}
 	});
+</script>
+
+<script>
+
+const linhas = document.querySelectorAll(".tabela-financeiro tbody tr");
+const linhasPorPagina = 5;
+
+let paginaAtual = 1;
+
+function mostrarPagina(pagina){
+
+    const inicio = (pagina - 1) * linhasPorPagina;
+    const fim = inicio + linhasPorPagina;
+
+    linhas.forEach((linha, index) => {
+        linha.style.display = (index >= inicio && index < fim) ? "" : "none";
+    });
+
+    document.getElementById("paginaAtual").innerText = "Página " + pagina;
+}
+
+document.getElementById("next").addEventListener("click", () => {
+
+    if(paginaAtual * linhasPorPagina < linhas.length){
+        paginaAtual++;
+        mostrarPagina(paginaAtual);
+    }
+
+});
+
+document.getElementById("prev").addEventListener("click", () => {
+
+    if(paginaAtual > 1){
+        paginaAtual--;
+        mostrarPagina(paginaAtual);
+    }
+
+});
+
+mostrarPagina(paginaAtual);
+
 </script>

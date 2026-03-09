@@ -19,6 +19,17 @@
     padding-left: 15px;
 }
 
+.paginacao{
+margin-top:20px;
+text-align:center;
+}
+
+.paginacao button{
+    padding:8px 12px;
+    margin:5px;
+    cursor:pointer;
+    
+}
 /* CARD PADRÃO */
 .card {
     background: #ffffff;

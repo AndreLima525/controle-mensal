@@ -99,22 +99,28 @@ include_once('../controller/fnConsultarDespesasController.php');
                     </button>
 
                     <a href="../model/deleteDespesaModel.php?id=<?= $dadoDespesa['idDespesa']; ?>" 
-                     class="btn-excluir"
-                     onclick="return confirm('Deseja realmente excluir esta despesa?');">
-                     <i class="fa-solid fa-trash-can"></i>
-                 </a>
+                       class="btn-excluir"
+                       onclick="return confirm('Deseja realmente excluir esta despesa?');">
+                       <i class="fa-solid fa-trash-can"></i>
+                   </a>
 
-             </td>
-         </tr>
-     <?php endforeach; ?>
+               </td>
+           </tr>
+       <?php endforeach; ?>
 
- <?php else: ?>
+   <?php else: ?>
     <tr>
         <td colspan="5">Nenhuma despesa encontrada.</td>
     </tr>
 <?php endif; ?>
 </tbody>
 </table>
+
+<div class="paginacao">
+    <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
+    <span id="paginaAtual"></span>
+    <button id="next"><i class="fa-solid fa-angle-right"></i></button>
+</div>
 </div>
 
 <div id="modalEditar" class="modal">
@@ -171,4 +177,45 @@ include_once('../controller/fnConsultarDespesasController.php');
             fecharModal();
         }
     }
+</script>
+
+<script>
+
+const linhas = document.querySelectorAll(".tabela-financeiro tbody tr");
+const linhasPorPagina = 5;
+
+let paginaAtual = 1;
+
+function mostrarPagina(pagina){
+
+    const inicio = (pagina - 1) * linhasPorPagina;
+    const fim = inicio + linhasPorPagina;
+
+    linhas.forEach((linha, index) => {
+        linha.style.display = (index >= inicio && index < fim) ? "" : "none";
+    });
+
+    document.getElementById("paginaAtual").innerText = "Página " + pagina;
+}
+
+document.getElementById("next").addEventListener("click", () => {
+
+    if(paginaAtual * linhasPorPagina < linhas.length){
+        paginaAtual++;
+        mostrarPagina(paginaAtual);
+    }
+
+});
+
+document.getElementById("prev").addEventListener("click", () => {
+
+    if(paginaAtual > 1){
+        paginaAtual--;
+        mostrarPagina(paginaAtual);
+    }
+
+});
+
+mostrarPagina(paginaAtual);
+
 </script>

@@ -106,4 +106,23 @@ function buscarDespesasDash($usuarioLogin) {
 
 $despesasDash = buscarDespesasDash($usuarioLogin);
 
+function getTotalDespesasMes($usuarioLogin) {
+
+    global $pdo;
+
+    $sql = "SELECT SUM(valorDespesa) AS totalMes
+            FROM despesas
+            WHERE idUsuario = :usuario
+            AND MONTH(dataDespesa) = MONTH(CURDATE())
+            AND YEAR(dataDespesa) = YEAR(CURDATE())";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':usuario', $usuarioLogin);
+    $stmt->execute();
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+$totalMes = getTotalDespesasMes($usuarioLogin);
+
 ?>

@@ -35,7 +35,7 @@ require_once('../controller/fnLoginController.php');
 				<button> Entrar </button>
 
 				<hr>
-				<a href="" class="forgot"> Esqueceu sua senha? </a>
+				<a href="esqueceuSenha.php" class="forgot"> Esqueceu sua senha? </a>
 			</form>
 
 		</div>

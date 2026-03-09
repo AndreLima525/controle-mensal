@@ -13,7 +13,7 @@ include_once('../model/fnGetAux.php');
 		</div>
 		<div class="card-info">
 			<h3>Despesas do Mês</h3>
-			<p>R$ 2.350,00</p>
+			<p><?php echo "R$ " . number_format($totalMes['totalMes'], 2, ',', '.'); ?></p>
 		</div>
 	</div>
 

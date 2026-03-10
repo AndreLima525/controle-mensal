@@ -265,7 +265,9 @@ text-align:center;
 }
 
 .card-senha{
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
     margin: 40px auto;
     background: #fff;
     padding: 25px;
@@ -386,12 +388,12 @@ text-align:center;
         display: none;
     }
 
-    .tabela-financeiro,
+    
     .tabela-financeiro tbody,
     .tabela-financeiro tr,
     .tabela-financeiro td {
         display: block;
-        width: 100%;
+        width: 95%;
     }
 
     .tabela-financeiro tr {
@@ -421,5 +423,14 @@ text-align:center;
         font-weight: bold;
         color: #16a34a;
     }
+
+
+    .modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 300px;
+    height: 90%;
+}
 
 }

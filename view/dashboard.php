@@ -11,7 +11,9 @@ include_once('../controller/sair.php');
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="../styles/styleDashboard.css">
 	<link rel="icon" type="image/jpeg" href="../images/logoAtomtech.jpeg">
+
 </head>
+
 <body>
 
 	<!-- BOTÃO MOBILE -->
@@ -31,7 +33,7 @@ include_once('../controller/sair.php');
 				<i class="fa-solid fa-circle-user"></i>
 				<span><?php echo $_SESSION['usuario']; ?></span> 
 
-					<a href="?pagina=alterSenhaPix" class="btnAlterarSenha" title="Alterar Senha / Pix"> <i class="fa fa-key"></i> </a>
+				<a href="?pagina=alterSenhaPix" class="btnAlterarSenha" title="Alterar Senha / Pix"> <i class="fa fa-key"></i> </a>
 				
 			</li>
 			
@@ -137,7 +139,6 @@ include_once('../controller/sair.php');
 		</div>
 
 	</div>
-
 </body>
 </html>
 

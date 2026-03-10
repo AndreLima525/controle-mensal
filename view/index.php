@@ -11,6 +11,12 @@ require_once('../controller/fnLoginController.php');
 	<title>Página Inicial</title>
 	<link rel="stylesheet" type="text/css" href="../styles/styleIndex.css">
 	<link rel="icon" type="image/jpeg" href="../images/logoAtomtech.jpeg">
+	<link rel="manifest" href="../manifest.json">
+	<meta name="theme-color" content="#0d6efd">
+	<link rel="apple-touch-icon" href="/projetoControle/icons/ios-192.png">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="mobile-web-app-capable" content="yes">
 </head>
 <body>
 	<div class="container"> 
@@ -40,6 +46,47 @@ require_once('../controller/fnLoginController.php');
 
 		</div>
 
+		<button id="btnInstalar" style="display:none;">
+			📲 Instalar aplicativo
+		</button>
 
+		<script>
+			let deferredPrompt;
+
+			window.addEventListener('beforeinstallprompt', (e) => {
+				e.preventDefault();
+				deferredPrompt = e;
+
+				document.getElementById("btnInstalar").style.display = "block";
+			});
+
+			document.getElementById("btnInstalar").addEventListener("click", async () => {
+
+				if (deferredPrompt) {
+
+					deferredPrompt.prompt();
+
+					const { outcome } = await deferredPrompt.userChoice;
+
+					if(outcome === "accepted"){
+						console.log("Usuário instalou o app");
+					}
+
+					deferredPrompt = null;
+				}
+
+			});
+		</script>
+
+		<script>
+
+			if ('serviceWorker' in navigator) {
+
+				navigator.serviceWorker.register('../service-worker.js')
+				.then(() => console.log("Service Worker registrado"));
+
+			}
+
+		</script>
 	</body>
 	</html>

@@ -327,6 +327,14 @@ body {
     .sidebar .logo {
         display: none;
     }
+
+    .cards-resumo {
+
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        margin-top: 20px;
+    }
 }
 
 .dashboard {

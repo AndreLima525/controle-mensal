@@ -69,20 +69,50 @@ include_once('../controller/fnIncluirCaixinhaController.php');
 
 </div>
 
-	<script>
-		function copiarTexto() {
-			const input = document.getElementById('chavePix');
+<script>
+	function copiarTexto() {
 
-			navigator.clipboard.writeText(input.value).then(() => {
-				const botao = document.querySelector('.btn-copy');
-				botao.innerHTML = '<i class="fa-solid fa-check"></i>';
-				botao.style.background = '#16a34a';
+		const input = document.getElementById('chavePix');
+		const botao = document.querySelector('.btn-copy');
+		const texto = input.value;
 
-				setTimeout(() => {
-					botao.innerHTML = '<i class="fa-regular fa-copy"></i>';
-					botao.style.background = '#2563eb';
-				}, 4000);
+		if (navigator.clipboard && window.isSecureContext) {
+
+			navigator.clipboard.writeText(texto).then(() => {
+				animarBotao(botao);
+			}).catch(() => {
+				copiarFallback(texto, botao);
 			});
+
+		} else {
+			copiarFallback(texto, botao);
 		}
+	}
+
+	function copiarFallback(texto, botao) {
+
+		const inputTemp = document.createElement("input");
+		inputTemp.value = texto;
+		document.body.appendChild(inputTemp);
+
+		inputTemp.select();
+		document.execCommand("copy");
+
+		document.body.removeChild(inputTemp);
+
+		animarBotao(botao);
+	}
+
+	function animarBotao(botao){
+
+		botao.innerHTML = '<i class="fa-solid fa-check"></i>';
+		botao.style.background = '#16a34a';
+
+		setTimeout(() => {
+			botao.innerHTML = '<i class="fa-regular fa-copy"></i>';
+			botao.style.background = '#2563eb';
+		}, 4000);
+
+	}
 </script>
 

@@ -37,7 +37,7 @@ include_once('../model/fnGetAux.php');
 		<thead>
 			<tr>
 				<th>Data</th>
-				<th>Categoria</th>
+				<!-- <th>Categoria</th> -->
 				<th>Descrição</th>
 				<th>Valor</th>
 			</tr>
@@ -47,7 +47,7 @@ include_once('../model/fnGetAux.php');
 				<?php foreach($despesasDash as $dados):?>
 					<tr>
 						<td><?= date('d-m-Y', strtotime($dados['dataDespesa'])); ?></td>
-						<td><?= $dados['dsCategoria']; ?></td>
+						<!-- <td><?= $dados['dsCategoria']; ?></td> -->
 						<td><?= $dados['dsDespesa']; ?></td>
 						<td>R$ <?= number_format($dados['valorDespesa'], 2, ',', '.'); ?></td>
 					</tr>

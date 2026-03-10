@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09/03/2026 às 19:51
+-- Tempo de geração: 10/03/2026 às 18:38
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.1.25
 
@@ -48,7 +48,8 @@ INSERT INTO `caixinhas` (`idDeposito`, `dataDeposito`, `valorDeposito`, `idPix`,
 (8, '2026-03-04', 49.90, 1, 'teste 3', 1),
 (9, '2026-03-04', 44.50, 1, 'testes', 1),
 (10, '2026-03-06', 100.00, 3, 'Primeiro depósito', 1),
-(11, '2026-03-09', 50.00, 1, 'testes 22', 1);
+(11, '2026-03-09', 50.00, 1, 'testes 22', 1),
+(12, '2026-03-09', 100.00, 1, 'teste dep', 1);
 
 -- --------------------------------------------------------
 
@@ -130,7 +131,8 @@ INSERT INTO `despesas` (`idDespesa`, `dataDespesa`, `idPrioridade`, `idCategoria
 (8, '2026-03-04', 1, 2, 'Coxinha e Café', 12.30, 1, 1),
 (9, '2026-03-06', 2, 8, 'Progressiva na Lívia em Franco', 260.00, 3, 1),
 (10, '2026-03-06', 1, 2, 'Salgadinho', 9.20, 1, 1),
-(11, '2026-03-09', 1, 6, 'Cinema com a gata', 100.00, 1, 1);
+(11, '2026-03-09', 1, 6, 'Cinema com a gata', 100.00, 1, 1),
+(12, '2026-03-09', 2, 3, 'testes', 100.00, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -195,7 +197,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nomeUsuario`, `login`, `senha`, `email`, `idNivelAcesso`, `stAtivo`, `idPAcesso`) VALUES
-(1, 'André Lima', 'admin', '$2y$10$AiK9cd7V26eEEDLfCgpdZuHRmZTDOusPhXt6tGl21RZ59byLkNi0y', 'andre525luis@gmail.com', 1, 1, 1),
+(1, 'André Lima', 'admin', '$2y$10$9PPwPiZegp8T/f8G9Gr2M.XsO5k.sAd/WJtV4SwF8Aho3Rl9ZF5xy', 'andre525luis@gmail.com', 1, 1, 1),
 (3, 'Laura Campos', 'laura', '$2y$10$CesVY1RNk2VRCCdAestMse5fuFUGkxEqVLAr9s8W6WSCNsMylCABu', 'lauraangra13@gmail.com', 2, 1, 1),
 (4, 'Judite Feitoza', 'judite', '$2y$10$rO0Gqja37lqtJoiuoHx4w.EYmtb2B/Nprp50ISkNTDxnBRfG3SJ9u', '', 2, 1, 1),
 (5, 'Joaquim', 'joaquim12', '$2y$10$T3lxVuN5V7PgPDq5P8Z6N.0BiBX7/HSoGwbnyUojcT07SOafrWFe6', '', 2, 0, 0),
@@ -264,7 +266,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `caixinhas`
 --
 ALTER TABLE `caixinhas`
-  MODIFY `idDeposito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idDeposito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `categorias`
@@ -282,7 +284,7 @@ ALTER TABLE `dadospix`
 -- AUTO_INCREMENT de tabela `despesas`
 --
 ALTER TABLE `despesas`
-  MODIFY `idDespesa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idDespesa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `nivelacesso`

@@ -41,41 +41,58 @@ require_once('../controller/fnLoginController.php');
 				<button> Entrar </button>
 
 				<hr>
-				<a href="esqueceuSenha.php" class="forgot"> Esqueceu sua senha? </a>
+				<!-- <a href="esqueceuSenha.php" class="forgot"> Esqueceu sua senha? </a> -->
+				<button id="btnInstalar" style="display:none;">
+					📲 Instalar aplicativo
+				</button>
 			</form>
 
 		</div>
 
-		<button id="btnInstalar" style="display:none;">
-			📲 Instalar aplicativo
-		</button>
+		
 
 		<script>
+
 			let deferredPrompt;
+			const btnInstalar = document.getElementById("btnInstalar");
 
-			window.addEventListener('beforeinstallprompt', (e) => {
+			/* Detecta se pode instalar */
+			window.addEventListener("beforeinstallprompt", (e) => {
+
 				e.preventDefault();
-				deferredPrompt = e;
 
-				document.getElementById("btnInstalar").style.display = "block";
-			});
-
-			document.getElementById("btnInstalar").addEventListener("click", async () => {
-
-				if (deferredPrompt) {
-
-					deferredPrompt.prompt();
-
-					const { outcome } = await deferredPrompt.userChoice;
-
-					if(outcome === "accepted"){
-						console.log("Usuário instalou o app");
-					}
-
-					deferredPrompt = null;
+				if (window.matchMedia('(display-mode: standalone)').matches) {
+					return;
 				}
 
+				deferredPrompt = e;
+				btnInstalar.style.display = "block";
+
 			});
+
+			/* Clique no botão */
+			btnInstalar.addEventListener("click", async () => {
+
+				if (!deferredPrompt) return;
+
+				deferredPrompt.prompt();
+
+				const { outcome } = await deferredPrompt.userChoice;
+
+				if (outcome === "accepted") {
+					console.log("Usuário instalou o app");
+				}
+
+				deferredPrompt = null;
+				btnInstalar.style.display = "none";
+
+			});
+
+			/* Quando instalar */
+			window.addEventListener("appinstalled", () => {
+				btnInstalar.style.display = "none";
+			});
+
 		</script>
 
 		<script>

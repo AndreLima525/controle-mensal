@@ -6,7 +6,7 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background: #f4f6fb;
     display: flex;
     justify-content: center;
@@ -123,4 +123,27 @@ hr {
 .forgot:hover {
     text-decoration: underline;
     color: #1d4ed8;
+}
+
+.btn-instalar{
+    padding:12px 18px;
+    border:none;
+    border-radius:10px;
+
+    background: linear-gradient(135deg,#2563eb,#3b82f6);
+    color:white;
+
+    font-weight:600;
+    font-size:14px;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+    transition:all .25s ease;
+}
+
+.btn-instalar:hover{
+    transform:translateY(-2px);
+    background:#1d4ed8;
 }

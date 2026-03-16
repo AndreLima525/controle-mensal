@@ -15,7 +15,7 @@ function getDespesasFiltradas($usuarioLogin, $DT_ConsultaI = null, $DT_ConsultaT
     FROM despesas TD
     INNER JOIN categorias TC 
     ON TC.idCategoria = TD.idCategoria
-    INNER JOIN prioridadesDespesas TP 
+    INNER JOIN prioridadesdespesas TP 
     ON TP.idPrioridade = TD.idPrioridade
     WHERE TD.idUsuario = :usuario";
 
@@ -67,7 +67,7 @@ function getDespesas($usuarioLogin) {
     FROM despesas TD
     INNER JOIN categorias TC 
     ON TC.idCategoria = TD.idCategoria
-    INNER JOIN prioridadesDespesas TP 
+    INNER JOIN prioridadesdespesas TP 
     ON TP.idPrioridade = TD.idPrioridade
     WHERE TD.idUsuario = :usuario";
 

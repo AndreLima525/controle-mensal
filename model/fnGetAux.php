@@ -22,7 +22,7 @@ $dadosCategorias = buscarCategorias();
 function buscarPrioridades() {
     global $pdo;
 
-    $sqlPrioridades = "SELECT * FROM prioridadesDespesas";
+    $sqlPrioridades = "SELECT * FROM prioridadesdespesas";
     $stmt = $pdo->prepare($sqlPrioridades);
     $stmt->execute();
 
@@ -79,7 +79,7 @@ function buscarAcessos() {
 
      global $pdo;
 
-    $sqlAcesso = "SELECT * FROM nivelAcesso";
+    $sqlAcesso = "SELECT * FROM nivelacesso";
     $stmt = $pdo->prepare($sqlAcesso);
     $stmt->execute();
 

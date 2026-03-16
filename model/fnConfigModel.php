@@ -15,7 +15,7 @@ function buscarUsuariosFiltrados($nomeUsuario = null, $stAtivo = null) {
         DP.idPix,
         DP.dsPix
     FROM usuarios US
-    INNER JOIN nivelAcesso NA 
+    INNER JOIN nivelacesso NA 
         ON US.idNivelAcesso = NA.idNivelAcesso
     LEFT JOIN dadospix DP 
         ON DP.idUsuario = US.idUsuario

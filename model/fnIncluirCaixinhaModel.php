@@ -1,5 +1,5 @@
 <?php
-	
+    
 require_once('conn.php');
 
 function inserirCaixinha($pdo, $dados) {
@@ -24,6 +24,6 @@ function inserirCaixinha($pdo, $dados) {
         ':idPix' => $dados['idPix'],
         ':descricao'  => $dados['descricao']
     ]);
-}	
+}   
 
 ?>

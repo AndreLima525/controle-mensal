@@ -10,6 +10,7 @@ function inserirDespesa($pdo, $dados) {
                 idPrioridade,
                 dsDespesa,
                 valorDespesa,
+                IC_Paga,
                 dataDespesa
             ) VALUES (
                 :usuario,
@@ -17,6 +18,7 @@ function inserirDespesa($pdo, $dados) {
                 :prioridade,
                 :descricao,
                 :valor,
+                :IC_Paga,
                 :data
             )";
 
@@ -28,6 +30,7 @@ function inserirDespesa($pdo, $dados) {
         ':prioridade' => $dados['prioridade'],
         ':descricao'  => $dados['descricao'],
         ':valor'      => $dados['valor'],
+        ':IC_Paga'      => 'N',
         ':data'       => $dados['data']
     ]);
 }

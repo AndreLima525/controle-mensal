@@ -1,22 +1,20 @@
 <?php
     require_once('../model/conn.php');
 
-    $id = $_POST['id'];
+    $id = $_GET['id'];
 
-    $valor = $_POST['valor'];
-    $valor = str_replace('.', '', $valor);
-    $valor = str_replace(',', '.', $valor);
+    $sql = "UPDATE despesas
 
-    $sql = "UPDATE despesas 
-    SET dsDespesa = ?, valorDespesa = ?, dataDespesa = ?
+    SET IC_Paga = ?
+
     WHERE idDespesa = ?";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        $_POST['descricao'],
-        $valor,
-        $_POST['data'],
+
+        'S',        
         $id
+        
     ]);
 
     echo "

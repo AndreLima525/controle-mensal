@@ -15,6 +15,15 @@ include_once('../model/fnGetAux.php');
 			<h3>Despesas do Mês</h3>
 			<p><?php echo "R$ " . number_format($totalMes['totalMes'], 2, ',', '.'); ?></p>
 		</div>
+
+		<div class="card-info"></div>
+		<div class="card-info"></div>
+		<div class="card-info"></div>
+		
+		<div class="card-info">
+			<h3>Depesas Pagas</h3>
+			<p><?php echo "R$ " . number_format($totalMesPagas['totalMesPagas'], 2, ',', '.'); ?></p>
+		</div>
 	</div>
 
 	<div class="card resumo">

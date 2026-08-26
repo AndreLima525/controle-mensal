@@ -123,6 +123,27 @@ function getTotalDespesasMes($usuarioLogin) {
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+function getTotalDespesasMesPagas($usuarioLogin) {
+
+    global $pdo;
+
+    $sql = "SELECT SUM(valorDespesa) AS totalMesPagas
+            FROM despesas
+            WHERE idUsuario = :usuario
+
+            AND IC_Paga = 'S'
+            AND MONTH(dataDespesa) = MONTH(CURDATE())
+            AND YEAR(dataDespesa) = YEAR(CURDATE())";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':usuario', $usuarioLogin);
+    $stmt->execute();
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+$totalMesPagas = getTotalDespesasMesPagas($usuarioLogin);
+
 $totalMes = getTotalDespesasMes($usuarioLogin);
 
 ?>

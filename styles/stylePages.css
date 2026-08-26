@@ -235,6 +235,8 @@ text-align:center;
 
 /* Botões */
 .btn-editar,
+.btn-pago,
+.btn-pagar,
 .btn-excluir {
     border: none;
     padding: 8px 10px;
@@ -252,6 +254,21 @@ text-align:center;
 
 .btn-editar:hover {
     background: #2563eb;
+}
+
+.btn-pago {
+    background: #28a745;
+    color: white;
+    cursor: default;
+}
+
+.btn-pagar {
+    background: grey;
+    color: white;
+}
+
+.btn-pagar:hover {
+    background: #218838;
 }
 
 /* Excluir */

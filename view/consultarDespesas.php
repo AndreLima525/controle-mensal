@@ -89,7 +89,7 @@ include_once('../controller/fnConsultarDespesasController.php');
                     <td class="valor">R$ <?= number_format($dadoDespesa['valorDespesa'], 2, ',', '.'); ?></td>
                     <td class="acoes">
 
-                        <button class="btn-editar" 
+                        <button title="Editar" class="btn-editar" 
                         data-id="<?= $dadoDespesa['idDespesa']; ?>"
                         data-descricao="<?= $dadoDespesa['dsDespesa']; ?>"
                         data-valor="<?= number_format($dadoDespesa['valorDespesa'], 2, ',', '.'); ?>"
@@ -98,17 +98,35 @@ include_once('../controller/fnConsultarDespesasController.php');
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
 
-                    <a href="../model/deleteDespesaModel.php?id=<?= $dadoDespesa['idDespesa']; ?>" 
+                    <a title="Excluir" href="../model/deleteDespesaModel.php?id=<?= $dadoDespesa['idDespesa']; ?>" 
                        class="btn-excluir"
                        onclick="return confirm('Deseja realmente excluir esta despesa?');">
                        <i class="fa-solid fa-trash-can"></i>
                    </a>
 
-               </td>
-           </tr>
-       <?php endforeach; ?>
+                   <?php if ($dadoDespesa['IC_Paga'] == 'N'): ?>
 
-   <?php else: ?>
+                       <a href="../model/updateDespesaPaga.php?id=<?= $dadoDespesa['idDespesa']; ?>" 
+                        class="btn-pagar"
+                           onclick="return confirm('Deseja incluir como paga?');">
+
+                           <i class="fa fa-check-circle"></i>
+                       </a>
+                   <?php endif; ?>
+                   
+                   <?php if ($dadoDespesa['IC_Paga'] == 'S'): ?>
+
+                       <button title="Despesa Paga" class="btn-pago">
+
+                        <i class="fa fa-check-circle"></i>
+                    </button>
+                <?php endif; ?>
+
+            </td>
+        </tr>
+    <?php endforeach; ?>
+
+<?php else: ?>
     <tr>
         <td colspan="5">Nenhuma despesa encontrada.</td>
     </tr>
@@ -181,41 +199,41 @@ include_once('../controller/fnConsultarDespesasController.php');
 
 <script>
 
-const linhas = document.querySelectorAll(".tabela-financeiro tbody tr");
-const linhasPorPagina = 5;
+    const linhas = document.querySelectorAll(".tabela-financeiro tbody tr");
+    const linhasPorPagina = 5;
 
-let paginaAtual = 1;
+    let paginaAtual = 1;
 
-function mostrarPagina(pagina){
+    function mostrarPagina(pagina){
 
-    const inicio = (pagina - 1) * linhasPorPagina;
-    const fim = inicio + linhasPorPagina;
+        const inicio = (pagina - 1) * linhasPorPagina;
+        const fim = inicio + linhasPorPagina;
 
-    linhas.forEach((linha, index) => {
-        linha.style.display = (index >= inicio && index < fim) ? "" : "none";
+        linhas.forEach((linha, index) => {
+            linha.style.display = (index >= inicio && index < fim) ? "" : "none";
+        });
+
+        document.getElementById("paginaAtual").innerText = "Página " + pagina;
+    }
+
+    document.getElementById("next").addEventListener("click", () => {
+
+        if(paginaAtual * linhasPorPagina < linhas.length){
+            paginaAtual++;
+            mostrarPagina(paginaAtual);
+        }
+
     });
 
-    document.getElementById("paginaAtual").innerText = "Página " + pagina;
-}
+    document.getElementById("prev").addEventListener("click", () => {
 
-document.getElementById("next").addEventListener("click", () => {
+        if(paginaAtual > 1){
+            paginaAtual--;
+            mostrarPagina(paginaAtual);
+        }
 
-    if(paginaAtual * linhasPorPagina < linhas.length){
-        paginaAtual++;
-        mostrarPagina(paginaAtual);
-    }
+    });
 
-});
-
-document.getElementById("prev").addEventListener("click", () => {
-
-    if(paginaAtual > 1){
-        paginaAtual--;
-        mostrarPagina(paginaAtual);
-    }
-
-});
-
-mostrarPagina(paginaAtual);
+    mostrarPagina(paginaAtual);
 
 </script>

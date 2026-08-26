@@ -10,8 +10,10 @@ function getDespesasFiltradas($usuarioLogin, $DT_ConsultaI = null, $DT_ConsultaT
     TD.dataDespesa,
     TD.dsDespesa,
     TD.valorDespesa,
+    TD.IC_Paga,
     TP.dsPrioridade,
     TC.dsCategoria
+    
     FROM despesas TD
     INNER JOIN categorias TC 
     ON TC.idCategoria = TD.idCategoria
@@ -62,8 +64,10 @@ function getDespesas($usuarioLogin) {
     TD.dataDespesa,
     TD.dsDespesa,
     TD.valorDespesa,
+    TD.IC_Paga,
     TP.dsPrioridade,
     TC.dsCategoria
+
     FROM despesas TD
     INNER JOIN categorias TC 
     ON TC.idCategoria = TD.idCategoria

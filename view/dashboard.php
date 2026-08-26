@@ -22,9 +22,17 @@ include_once('../controller/sair.php');
 	</div>
 
 	<div class="sidebar">
-		<div class="logo">
-			<i class="fa-solid fa-chart-line"></i>
-			<span>Controle Financeiro</span>
+		<div class="sidebar-header">
+
+			<div class="logo">
+				<i class="fa-solid fa-chart-line"></i>
+				<span>Controle Financeiro</span>
+			</div>
+
+			<button class="close-sidebar" onclick="toggleSidebar()">
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+
 		</div>
 
 		<ul class="menu">
@@ -146,9 +154,15 @@ include_once('../controller/sair.php');
 <script>
 
 	function toggleSidebar() {
-		const sidebar = document.querySelector('.sidebar');
-		const main = document.querySelector('.main-content');
-		sidebar.classList.toggle('active');
-		main.classList.toggle('shifted'); 
-	}
+
+    const sidebar = document.querySelector('.sidebar');
+    const mobileToggle = document.querySelector('.mobile-toggle');
+
+    if (!sidebar || !mobileToggle) {
+        return;
+    }
+
+    sidebar.classList.toggle('active');
+    mobileToggle.classList.toggle('active');
+}
 </script>

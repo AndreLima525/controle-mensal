@@ -384,6 +384,27 @@ text-align:center;
 
 @media (max-width: 768px) {
 
+     .page-header {
+        margin-top: 0 !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .page-header h2 {
+        margin: 0;
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    .card,
+    .card-lista {
+        margin-top: 0 !important;
+    }
+
+    .tabela-financeiro {
+        margin-top: 20px;
+    }
+
     .tabela-financeiro thead {
         display: none;
     }

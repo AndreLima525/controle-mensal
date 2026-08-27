@@ -38,7 +38,7 @@ require_once('../controller/fnLoginController.php');
 				<label> Senha </label>
 				<input type="password" name="senha" required>
 
-				<button> Entrar </button>
+				<button type="submit"> Entrar </button>
 
 				<hr>
 				<!-- <a href="esqueceuSenha.php" class="forgot"> Esqueceu sua senha? </a> -->
@@ -96,14 +96,23 @@ require_once('../controller/fnLoginController.php');
 		</script>
 
 		<script>
-
 			if ('serviceWorker' in navigator) {
 
-				navigator.serviceWorker.register('../service-worker.js')
-				.then(() => console.log("Service Worker registrado"));
+				window.addEventListener('load', () => {
+
+					navigator.serviceWorker.register('/projetoControle/service-worker.js')
+					.then(registration => {
+						console.log('Service Worker registrado:', registration.scope);
+
+						registration.update();
+					})
+					.catch(error => {
+						console.error('Erro ao registrar Service Worker:', error);
+					});
+
+				});
 
 			}
-
 		</script>
 	</body>
 	</html>

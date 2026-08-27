@@ -150,7 +150,6 @@ include_once('../controller/sair.php');
 </body>
 </html>
 
-
 <script>
 
 	function toggleSidebar() {

@@ -25,23 +25,23 @@ function getDespesasFiltradas($usuarioLogin, $DT_ConsultaI = null, $DT_ConsultaT
 
     // FILTRO DATA INICIAL
     if (!empty($DT_ConsultaI)) {
-        $dataInicio = implode("-", array_reverse(explode("/", $DT_ConsultaI)));
-        $sql .= " AND TD.dataDespesa >= :dataInicio";
-        $params[':dataInicio'] = $dataInicio;
+        $sql .= " AND DATE(TD.dataDespesa) >= :dataInicio";
+        $params[':dataInicio'] = $DT_ConsultaI;
     }
 
     // FILTRO DATA FINAL
     if (!empty($DT_ConsultaT)) {
-        $dataFinal = implode("-", array_reverse(explode("/", $DT_ConsultaT)));
-        $sql .= " AND TD.dataDespesa <= :dataFinal";
-        $params[':dataFinal'] = $dataFinal;
+        $sql .= " AND DATE(TD.dataDespesa) <= :dataFinal";
+        $params[':dataFinal'] = $DT_ConsultaT;
     }
 
+    // FILTRO PRIORIDADE
     if ($prioridade !== null && $prioridade !== '') {
         $sql .= " AND TD.idPrioridade = :prioridade";
         $params[':prioridade'] = (int)$prioridade;
     }
 
+    // FILTRO CATEGORIA
     if ($categoria !== null && $categoria !== '') {
         $sql .= " AND TD.idCategoria = :categoria";
         $params[':categoria'] = (int)$categoria;

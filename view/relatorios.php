@@ -13,7 +13,8 @@
 <div class="card">
 
 	<h3> Despesas </h3>
-	<form class="form-grid" method="POST" action="../controller/fnRelatorioDespesas.php" target="_blank">
+	<form class="form-grid" method="POST" action="../con
+    troller/fnRelatorioDespesas.php" target="_blank">
 
         <div class="form-group">
             <label>Data Início</label>
@@ -29,7 +30,7 @@
             <label>Categoria</label>
             
             <select name="categoria">
-                <option value="" disabled selected> -- Selecione -- </option>
+                <option value="">-- Selecione --</option>
 
                 <?php foreach ($dadosCategorias as $dados): ?>
                     <option value="<?= $dados['idCategoria']; ?>">
@@ -45,7 +46,7 @@
             <label>Prioridade</label>
 
             <select name="prioridade">
-                <option value="" disabled selected> -- Selecione -- </option>
+                <option value="">-- Selecione --</option>
 
                 <?php foreach ($dadosPrioridades as $dados): ?>
                     <option value="<?= $dados['idPrioridade']; ?>">

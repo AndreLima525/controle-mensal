@@ -89,28 +89,28 @@ include_once('../controller/fnConsultarDespesasController.php');
                     <td class="valor">R$ <?= number_format($dadoDespesa['valorDespesa'], 2, ',', '.'); ?></td>
                     <td class="acoes">
 
-                        <button title="Editar" class="btn-editar" 
+                    <button title="Editar" class="btn-editar" 
                         data-id="<?= $dadoDespesa['idDespesa']; ?>"
                         data-descricao="<?= $dadoDespesa['dsDespesa']; ?>"
                         data-valor="<?= number_format($dadoDespesa['valorDespesa'], 2, ',', '.'); ?>"
                         data-data="<?= $dadoDespesa['dataDespesa']; ?>">
 
                         <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
+                    </button> &nbsp;
 
                     <a title="Excluir" href="../model/deleteDespesaModel.php?id=<?= $dadoDespesa['idDespesa']; ?>" 
                        class="btn-excluir"
                        onclick="return confirm('Deseja realmente excluir esta despesa?');">
                        <i class="fa-solid fa-trash-can"></i>
-                   </a>
+                   </a>&nbsp;
 
                    <?php if ($dadoDespesa['IC_Paga'] == 'N'): ?>
 
-                       <a href="../model/updateDespesaPaga.php?id=<?= $dadoDespesa['idDespesa']; ?>" 
+                       <a title="Incluir como paga" href="../model/updateDespesaPaga.php?id=<?= $dadoDespesa['idDespesa']; ?>" 
                         class="btn-pagar"
                            onclick="return confirm('Deseja incluir como paga?');">
 
-                           <i class="fa fa-check-circle"></i>
+                           <i class="fa-solid fa-coins"></i>
                        </a>
                    <?php endif; ?>
                    

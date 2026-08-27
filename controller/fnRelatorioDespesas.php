@@ -96,6 +96,7 @@ $pdf->Cell(50,10,'R$ '.number_format($total,2,',','.'),1,1,'R',true);
 // Gera o PDF
 $pdf->Output();
 
-ob_end_flush();
+ob_end_clean();
+$pdf->Output('I', 'relatorio_despesas.pdf');
 exit;
 ?>

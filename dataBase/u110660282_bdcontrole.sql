@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 10/03/2026 às 18:38
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.1.25
+-- Host: 127.0.0.1:3306
+-- Tempo de geração: 01/09/2026 às 19:42
+-- Versão do servidor: 11.8.8-MariaDB-log
+-- Versão do PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bd_controle`
+-- Banco de dados: `u110660282_bdcontrole`
 --
 
 -- --------------------------------------------------------
@@ -41,15 +41,7 @@ CREATE TABLE `caixinhas` (
 --
 
 INSERT INTO `caixinhas` (`idDeposito`, `dataDeposito`, `valorDeposito`, `idPix`, `dsDeposito`, `stAtivo`) VALUES
-(1, '2026-03-04', 100.00, 1, 'Deposito 1', 1),
-(2, '2026-03-02', 24.00, 1, 'Deposito 2', 1),
-(6, '2026-03-04', 124.00, 1, 'testes', 1),
-(7, '2026-03-04', 33.50, 1, 'teste 2', 1),
-(8, '2026-03-04', 49.90, 1, 'teste 3', 1),
-(9, '2026-03-04', 44.50, 1, 'testes', 1),
-(10, '2026-03-06', 100.00, 3, 'Primeiro depósito', 1),
-(11, '2026-03-09', 50.00, 1, 'testes 22', 1),
-(12, '2026-03-09', 100.00, 1, 'teste dep', 1);
+(1, '2026-08-26', 1000.00, 1, 'Caixinha Nubank', 1);
 
 -- --------------------------------------------------------
 
@@ -97,9 +89,7 @@ CREATE TABLE `dadospix` (
 
 INSERT INTO `dadospix` (`idPix`, `dsBancoPix`, `dsPix`, `idUsuario`, `stAtivo`) VALUES
 (1, 'nubank', '11998492112', 1, 1),
-(3, 'Caixa', '11953193480', 3, 1),
-(4, 'Santander', 'judite@gmail.com', 4, 1),
-(5, 'Will', '123456777', 5, 1);
+(3, 'Nubank', '11953193480', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -114,6 +104,7 @@ CREATE TABLE `despesas` (
   `idCategoria` int(11) NOT NULL,
   `dsDespesa` varchar(200) NOT NULL,
   `valorDespesa` decimal(10,2) NOT NULL,
+  `IC_Paga` enum('S','N') NOT NULL DEFAULT 'N',
   `idUsuario` int(11) NOT NULL,
   `stAtivo` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -122,17 +113,20 @@ CREATE TABLE `despesas` (
 -- Despejando dados para a tabela `despesas`
 --
 
-INSERT INTO `despesas` (`idDespesa`, `dataDespesa`, `idPrioridade`, `idCategoria`, `dsDespesa`, `valorDespesa`, `idUsuario`, `stAtivo`) VALUES
-(1, '2026-03-02', 1, 1, 'Teste despesa moradia', 251.00, 1, 1),
-(4, '2026-03-13', 1, 2, 'Salgado e Guaraná e bala', 19.00, 1, 1),
-(5, '2026-03-11', 2, 4, 'doce e cafe', 998.00, 1, 1),
-(6, '2026-03-02', 1, 8, 'Unhas de gel na Raissa', 130.00, 3, 1),
-(7, '2026-03-10', 2, 5, 'Compra de 1 Livro', 35.00, 1, 1),
-(8, '2026-03-04', 1, 2, 'Coxinha e Café', 12.30, 1, 1),
-(9, '2026-03-06', 2, 8, 'Progressiva na Lívia em Franco', 260.00, 3, 1),
-(10, '2026-03-06', 1, 2, 'Salgadinho', 9.20, 1, 1),
-(11, '2026-03-09', 1, 6, 'Cinema com a gata', 100.00, 1, 1),
-(12, '2026-03-09', 2, 3, 'testes', 100.00, 1, 1);
+INSERT INTO `despesas` (`idDespesa`, `dataDespesa`, `idPrioridade`, `idCategoria`, `dsDespesa`, `valorDespesa`, `IC_Paga`, `idUsuario`, `stAtivo`) VALUES
+(1, '2026-08-26', 1, 2, 'Doce Isabela Presente', 7.75, 'S', 1, 1),
+(2, '2026-08-26', 1, 2, 'Bolo e café - Fatec', 9.00, 'S', 1, 1),
+(3, '2026-08-27', 3, 4, 'Remédio Cystex', 31.12, 'S', 1, 1),
+(4, '2026-08-27', 1, 2, 'Doces Isabela presentes', 7.00, 'S', 1, 1),
+(5, '2026-08-27', 1, 2, 'Doce e suquinho Isabela ', 11.49, 'S', 1, 1),
+(6, '2026-08-28', 1, 8, 'Blaze', 20.00, 'S', 1, 1),
+(7, '2026-08-28', 1, 3, 'Uber volta pra casa', 18.00, 'S', 1, 1),
+(8, '2026-08-28', 1, 3, 'Uber', 17.00, 'S', 1, 1),
+(9, '2026-09-05', 2, 1, 'Parcela 03 de 05 - Fernando', 520.00, 'N', 1, 1),
+(10, '2026-09-05', 2, 1, 'Conta de Luz ', 85.00, 'N', 1, 1),
+(11, '2026-09-05', 2, 7, 'Parcela 2 de 4 - Empréstimo Bradesco', 227.00, 'N', 1, 1),
+(12, '2026-09-01', 2, 7, 'Fatura Bradesco 09/2026 - Valor mínimo', 605.00, 'N', 1, 1),
+(13, '2026-09-05', 1, 1, 'Fernando - Materiais que comprou à parte no apartamento', 160.00, 'N', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -197,12 +191,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nomeUsuario`, `login`, `senha`, `email`, `idNivelAcesso`, `stAtivo`, `idPAcesso`) VALUES
-(1, 'André Lima', 'admin', '$2y$10$9PPwPiZegp8T/f8G9Gr2M.XsO5k.sAd/WJtV4SwF8Aho3Rl9ZF5xy', 'andre525luis@gmail.com', 1, 1, 1),
-(3, 'Laura Campos', 'laura', '$2y$10$CesVY1RNk2VRCCdAestMse5fuFUGkxEqVLAr9s8W6WSCNsMylCABu', 'lauraangra13@gmail.com', 2, 1, 1),
-(4, 'Judite Feitoza', 'judite', '$2y$10$rO0Gqja37lqtJoiuoHx4w.EYmtb2B/Nprp50ISkNTDxnBRfG3SJ9u', '', 2, 1, 1),
-(5, 'Joaquim', 'joaquim12', '$2y$10$T3lxVuN5V7PgPDq5P8Z6N.0BiBX7/HSoGwbnyUojcT07SOafrWFe6', '', 2, 0, 0),
-(6, 'Juliana', 'julima', '$2y$10$e6S.w9bUpPabL99vTQ.Mq.QXU721Sm32mM/Qn.LR4paJzXdBqxH0i', '', 2, 1, 1),
-(7, 'Maria das Graças', 'maria211', '$2y$10$l5cmscagwcLjgZWJGs/y6.eJ5fHak8i5oQeW7xhcqwrZR7L9n6L0K', '', 2, 1, 0);
+(1, 'André Lima', 'admin', '$2y$10$P2NsBjivWmmYb6lz7jJ4tOE4biXpgW6gXYenTsmpOJYboXrx1RjCy', 'andre525luis@gmail.com', 1, 1, 1),
+(3, 'Laura Campos', 'laura', '$2y$10$GNOnOJBHpqTi3QYx1Xh/XOM5ReWI8SKlaSmQ0vTetrO4d8rzOuzGy', 'lauraangra13@gmail.com', 2, 1, 1);
 
 --
 -- Índices para tabelas despejadas
@@ -266,7 +256,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `caixinhas`
 --
 ALTER TABLE `caixinhas`
-  MODIFY `idDeposito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idDeposito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `categorias`
@@ -284,7 +274,7 @@ ALTER TABLE `dadospix`
 -- AUTO_INCREMENT de tabela `despesas`
 --
 ALTER TABLE `despesas`
-  MODIFY `idDespesa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idDespesa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `nivelacesso`

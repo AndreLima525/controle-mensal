@@ -31,7 +31,7 @@ require_once('../controller/sair.php');
             <label>Categoria</label>
             
             <select name="categoria">
-                <option value="" disabled selected> -- Selecione -- </option>
+                <option value=""> -- TODAS -- </option>
 
                 <?php foreach ($dadosCategorias as $dados): ?>
                     <option value="<?= $dados['idCategoria']; ?>">
@@ -47,7 +47,7 @@ require_once('../controller/sair.php');
             <label>Prioridade</label>
 
             <select name="prioridade">
-                <option value="" disabled selected> -- Selecione -- </option>
+                <option value=""> -- TODAS -- </option>
 
                 <?php foreach ($dadosPrioridades as $dados): ?>
                     <option value="<?= $dados['idPrioridade']; ?>">

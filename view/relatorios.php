@@ -31,7 +31,7 @@
             <label>Categoria</label>
             
             <select name="categoria">
-                <option value="">-- Selecione --</option>
+                <option value="">-- TODAS --</option>
 
                 <?php foreach ($dadosCategorias as $dados): ?>
                     <option value="<?= $dados['idCategoria']; ?>">
@@ -47,7 +47,7 @@
             <label>Prioridade</label>
 
             <select name="prioridade">
-                <option value="">-- Selecione --</option>
+                <option value="">-- TODAS --</option>
 
                 <?php foreach ($dadosPrioridades as $dados): ?>
                     <option value="<?= $dados['idPrioridade']; ?>">

@@ -2,6 +2,7 @@
 
 include_once('../model/fnGetAux.php');
 include_once('../controller/fnAlterarSenhaPixController.php');
+require_once('../controller/sair.php');
 ?>
 
 <link rel="stylesheet" type="text/css" href="../styles/stylePages.css">

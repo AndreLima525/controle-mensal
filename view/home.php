@@ -1,6 +1,7 @@
 <?php
 
-include_once('../model/fnGetAux.php');
+	include_once('../model/fnGetAux.php');
+	require_once('../controller/sair.php');
 
 ?>
 

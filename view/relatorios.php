@@ -1,5 +1,6 @@
 <?php
 	include_once('../model/fnGetAux.php');
+    require_once('../controller/sair.php');
 ?>
 
 <link rel="icon" type="image/jpeg" href="../images/logoAtomtech.jpeg">

@@ -1,7 +1,6 @@
 <?php
 	
-
-// require_once('../controller/');
+require_once('../controller/sair.php');
 
 ?>
 

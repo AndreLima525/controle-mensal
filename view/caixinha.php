@@ -2,6 +2,7 @@
 
 include_once('../model/fnGetAux.php');
 include_once('../controller/fnIncluirCaixinhaController.php');
+require_once('../controller/sair.php');
 
 ?>
 

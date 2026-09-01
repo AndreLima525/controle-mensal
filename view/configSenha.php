@@ -1,6 +1,7 @@
 <?php
 
 require_once('../controller/fnConfigSenhaController.php');
+require_once('../controller/sair.php');
 ?>
 
 <!DOCTYPE html>

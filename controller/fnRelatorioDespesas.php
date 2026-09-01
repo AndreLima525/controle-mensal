@@ -1,13 +1,8 @@
 <?php
 
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
-
-// Inicia buffer de saída para evitar que qualquer aviso quebre o PDF
+session_start();
 ob_start();
 
-// Evita exibição de deprecated/notices durante a geração do PDF
-error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
 
 include_once('../model/fnRelatoriosModel.php');
 require('../lib/fpdf.php');
@@ -15,8 +10,6 @@ require('../lib/fpdf.php');
 function convert($txt){
     return mb_convert_encoding($txt, 'ISO-8859-1', 'UTF-8');
 }
-
-session_start();
 
 $usuarioLogin = $_SESSION['idUsuario'] ?? null;
 $DT_ConsultaI = $_POST['DT_ConsultaI'] ?? null;

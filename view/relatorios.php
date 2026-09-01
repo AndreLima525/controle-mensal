@@ -1,6 +1,6 @@
 <?php
-	include_once('../model/fnGetAux.php');
-    require_once('../controller/sair.php');
+include_once('../model/fnGetAux.php');
+require_once('../controller/sair.php');
 ?>
 
 <link rel="icon" type="image/jpeg" href="../images/logoAtomtech.jpeg">
@@ -14,8 +14,7 @@
 <div class="card">
 
 	<h3> Despesas </h3>
-	<form class="form-grid" method="POST" action="../con
-    troller/fnRelatorioDespesas.php" target="_blank">
+	<form class="form-grid" method="POST" action="../controller/fnRelatorioDespesas.php" target="_blank">
 
         <div class="form-group">
             <label>Data Início</label>
@@ -87,5 +86,5 @@
         </div>
         <div class="form-group">
         </div>
-	</form>
+    </form>
 </div>

@@ -1,9 +1,13 @@
 <?php
-    require_once('conn.php');
+require_once('conn.php');
 
-    if (isset($_GET['id'])) {
+session_start();
 
-        $id = $_GET['id'];
+if (isset($_GET['id'])) {
+
+    $id = $_GET['id'];
+
+    if (isset($_SESSION['acesso']) && $_SESSION['acesso'] == 1) {
 
         $sql = "UPDATE usuarios SET stAtivo = 0 WHERE idUsuario = :id";
 
@@ -13,5 +17,13 @@
 
         header("Location: ../view/dashboard.php?pagina=config");
         exit;
+
+    } else {
+
+        header("Location: ../view/dashboard.php?pagina=config");
+        exit;
     }
+
+
+}
 ?>

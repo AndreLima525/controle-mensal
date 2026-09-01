@@ -1,19 +1,24 @@
 <?php
     require_once('../model/conn.php');
-
+    
+    session_start();
+    
     $id = $_GET['id'];
+
+    $idUsuario = $_SESSION['idUsuario'];
 
     $sql = "UPDATE despesas
 
     SET IC_Paga = ?
 
-    WHERE idDespesa = ?";
+    WHERE idDespesa = ? AND idUsuario = ?";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
 
         'S',        
-        $id
+        $id,
+        $idUsuario
         
     ]);
 

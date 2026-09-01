@@ -273,22 +273,30 @@ body {
     margin: 0 auto;
 }
 
-.btnAlterarSenha{
+.btnAlterarSenha {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 10px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
     color: white;
-    border-radius: 6px;
+    border-radius: 50%;
     text-decoration: none;
-    background: none;
+    background: transparent;
     cursor: pointer;
     margin-left: 35px;
+    transition: all 0.3s ease;
 }
 
-.btnAlterarSenha i:hover{
-    transition:1s;
+.btnAlterarSenha i {
+    transition: all 0.3s ease;
+}
+
+.btnAlterarSenha:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btnAlterarSenha:hover i {
     color: #1e1f36;
 }
 

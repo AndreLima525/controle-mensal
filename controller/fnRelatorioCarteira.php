@@ -12,7 +12,7 @@ function convert($txt){
 $usuarioLogin = $_SESSION['idUsuario'] ?? null;
 $DT_ConsultaI = $_POST['DT_ConsultaI'] ?? null;
 $DT_ConsultaT = $_POST['DT_ConsultaT'] ?? null;
-
+ 
 // Busca os dados filtrados
 $dadosCarteira = getCarteiraFiltrada(
     $usuarioLogin,

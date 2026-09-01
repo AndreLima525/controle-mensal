@@ -1,4 +1,8 @@
 <?php
+
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+
 // Inicia buffer de saída para evitar que qualquer aviso quebre o PDF
 ob_start();
 
@@ -8,8 +12,8 @@ error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
 include_once('../model/fnRelatoriosModel.php');
 require('../lib/fpdf.php');
 
-function convert($texto){
-    return mb_convert_encoding($texto, 'ISO-8859-1', 'UTF-8');
+function convert($txt){
+    return mb_convert_encoding($txt, 'ISO-8859-1', 'UTF-8');
 }
 
 session_start();
@@ -55,7 +59,7 @@ if (!empty($DT_ConsultaI) && !empty($DT_ConsultaT)) {
     $periodo = 'Todos os registros';
 }
 
-$pdf->Cell(0,8, convert('Período: '). $periodo,0,1,'L');
+$pdf->Cell(0,8,convert('Período: '.$periodo),0,1,'L');
 
 $pdf->Ln(10); // espaço antes da tabela
 

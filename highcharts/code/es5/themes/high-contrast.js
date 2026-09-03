@@ -1,0 +1,10 @@
+!/**
+ * Highcharts JS v13.0.2 (2026-08-27)
+ * @module highcharts/themes/high-contrast-light
+ * @requires highcharts
+ *
+ * (c) 2009-2026 Highsoft AS
+ *
+ * A commercial license may be required depending on use,
+ * see www.highcharts.com/license
+ */function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e(t._Highcharts):"function"==typeof define&&define.amd?define("highcharts/themes/high-contrast",["highcharts/highcharts"],function(t){return e(t)}):"object"==typeof exports?exports["highcharts/themes/high-contrast"]=e(t._Highcharts):t.Highcharts=e(t.Highcharts)}("u"<typeof window?this:window,function(t){return function(){"use strict";var e,r,o={944:function(e){e.exports=t}},n={};function i(t){var e=n[t];if(void 0!==e)return e.exports;var r=n[t]={exports:{}};return o[t](r,r.exports,i),r.exports}i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,{a:e}),e},i.d=function(t,e){if(Array.isArray(e))for(var r=0;r<e.length;){var o=e[r++],n=e[r++];i.o(t,o)?0===n&&r++:0===n?Object.defineProperty(t,o,{enumerable:!0,value:e[r++]}):Object.defineProperty(t,o,{enumerable:!0,get:n})}else for(var o in e)i.o(e,o)&&!i.o(t,o)&&Object.defineProperty(t,o,{enumerable:!0,get:e[o]})},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)};var a={};i.d(a,{default:function(){return h}});var c=i(944),s=i.n(c),f=s().setOptions;(e=r||(r={})).options={palette:{light:{colors:["#265FB5","#222","#698F01","#F4693E","#4C0684","#0FA388","#B7104A","#AF9023","#1A704C","#B02FDD"]},dark:{colors:["#67B9EE","#CEEDA5","#9F6AE1","#FEA26E","#6BA48F","#EA3535","#8D96B7","#ECCA15","#20AA09","#E0C3E4"]}},credits:{style:{color:"light-dark(#767676, #F0F0F3)"}},navigator:{series:{color:"light-dark(#5f98cf, #7798BF)",lineColor:"light-dark(#5f98cf, #A6C7ED)"}}},e.apply=function(){f(e.options)};var u=r;s().theme=u.options,u.apply();var h=s();return a.default}()});

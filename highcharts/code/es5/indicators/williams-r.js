@@ -1,0 +1,14 @@
+!/**
+ * Highstock JS v13.0.2 (2026-08-27)
+ * @module highcharts/indicators/williams-r
+ * @requires highcharts
+ * @requires highcharts/modules/stock
+ *
+ * Indicator series type for Highcharts Stock
+ *
+ * (c) 2010-2026 Highsoft AS
+ * Author: Wojciech Chmiel
+ *
+ * A commercial license may be required depending on use,
+ * see www.highcharts.com/license
+ */function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e(t._Highcharts,t._Highcharts.SeriesRegistry):"function"==typeof define&&define.amd?define("highcharts/indicators/williams-r",["highcharts/highcharts"],function(t){return e(t,t.SeriesRegistry)}):"object"==typeof exports?exports["highcharts/indicators/williams-r"]=e(t._Highcharts,t._Highcharts.SeriesRegistry):t.Highcharts=e(t.Highcharts,t.Highcharts.SeriesRegistry)}("u"<typeof window?this:window,function(t,e){return function(){"use strict";var r,n={512:function(t){t.exports=e},944:function(e){e.exports=t}},o={};function i(t){var e=o[t];if(void 0!==e)return e.exports;var r=o[t]={exports:{}};return n[t](r,r.exports,i),r.exports}i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,{a:e}),e},i.d=function(t,e){if(Array.isArray(e))for(var r=0;r<e.length;){var n=e[r++],o=e[r++];i.o(t,n)?0===o&&r++:0===o?Object.defineProperty(t,n,{enumerable:!0,value:e[r++]}):Object.defineProperty(t,n,{enumerable:!0,get:o})}else for(var n in e)i.o(e,n)&&!i.o(t,n)&&Object.defineProperty(t,n,{enumerable:!0,get:e[n]})},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)};var a={};i.d(a,{default:function(){return d}});var s=i(944),u=i.n(s),c=function(t,e,r){return t.reduce(function(t,n){return[Math.min(t[0],n[e]),Math.max(t[1],n[r])]},[Number.MAX_VALUE,-Number.MAX_VALUE])},f=i(512),p=i.n(f),h=(r=function(t,e){return(r=Object.setPrototypeOf||({__proto__:[]})instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(t,e)},function(t,e){function n(){this.constructor=t}r(t,e),t.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}),l=p().seriesTypes.sma,y=function(t){function e(){return null!==t&&t.apply(this,arguments)||this}return h(e,t),e.prototype.getValues=function(t,e){var r,n,o,i,a,u=e.period,f=t.xData,p=t.yData,h=p?p.length:0,l=[],y=[],d=[];if(!(f.length<u)&&(0,s.isArray)(p[0])&&4===p[0].length){for(a=u-1;a<h;a++)i=(r=c(p.slice(a-u+1,a+1),2,1))[0],n=-(((o=r[1])-p[a][3])/(o-i)*100),f[a]&&(l.push([f[a],n]),y.push(f[a]),d.push(n));return{values:l,xData:y,yData:d}}},e.defaultOptions=(0,s.merge)(l.defaultOptions,{params:{index:void 0,period:14}}),e}(l);(0,s.extend)(y.prototype,{nameBase:"Williams %R"}),p().registerSeriesType("williamsr",y);var d=u();return a.default}()});

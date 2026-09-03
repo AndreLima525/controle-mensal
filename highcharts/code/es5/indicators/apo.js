@@ -1,0 +1,14 @@
+!/**
+ * Highstock JS v13.0.2 (2026-08-27)
+ * @module highcharts/indicators/apo
+ * @requires highcharts
+ * @requires highcharts/modules/stock
+ *
+ * Indicator series type for Highcharts Stock
+ *
+ * (c) 2010-2026 Highsoft AS
+ * Author: Wojciech Chmiel
+ *
+ * A commercial license may be required depending on use,
+ * see www.highcharts.com/license
+ */function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t(e._Highcharts,e._Highcharts.SeriesRegistry):"function"==typeof define&&define.amd?define("highcharts/indicators/apo",["highcharts/highcharts"],function(e){return t(e,e.SeriesRegistry)}):"object"==typeof exports?exports["highcharts/indicators/apo"]=t(e._Highcharts,e._Highcharts.SeriesRegistry):e.Highcharts=t(e.Highcharts,e.Highcharts.SeriesRegistry)}("u"<typeof window?this:window,function(e,t){return function(){"use strict";var r,o={512:function(e){e.exports=t},944:function(t){t.exports=e}},n={};function i(e){var t=n[e];if(void 0!==t)return t.exports;var r=n[e]={exports:{}};return o[e](r,r.exports,i),r.exports}i.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(t,{a:t}),t},i.d=function(e,t){if(Array.isArray(t))for(var r=0;r<t.length;){var o=t[r++],n=t[r++];i.o(e,o)?0===n&&r++:0===n?Object.defineProperty(e,o,{enumerable:!0,value:t[r++]}):Object.defineProperty(e,o,{enumerable:!0,get:n})}else for(var o in t)i.o(t,o)&&!i.o(e,o)&&Object.defineProperty(e,o,{enumerable:!0,get:t[o]})},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)};var a={};i.d(a,{default:function(){return l}});var s=i(944),u=i.n(s),p=i(512),c=i.n(p),f=(r=function(e,t){return(r=Object.setPrototypeOf||({__proto__:[]})instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(e,t)},function(e,t){function o(){this.constructor=e}r(e,t),e.prototype=null===t?Object.create(t):(o.prototype=t.prototype,new o)}),h=c().seriesTypes.ema,d=function(e){function t(){return null!==e&&e.apply(this,arguments)||this}return f(t,e),t.prototype.getValues=function(t,r){var o,n,i=r.periods,a=r.index,u=[],p=[],c=[];if(2!==i.length||i[1]<=i[0])return void(0,s.error)('Error: "APO requires two periods. Notice, first period should be lower than the second one."');var f=e.prototype.getValues.call(this,t,{index:a,period:i[0]}),h=e.prototype.getValues.call(this,t,{index:a,period:i[1]});if(f&&h){var d=i[1]-i[0];for(n=0;n<h.yData.length;n++)o=f.yData[n+d]-h.yData[n],u.push([h.xData[n],o]),p.push(h.xData[n]),c.push(o);return{values:u,xData:p,yData:c}}},t.defaultOptions=(0,s.merge)(h.defaultOptions,{params:{period:void 0,periods:[10,20]}}),t}(h);(0,s.extend)(d.prototype,{nameBase:"APO",nameComponents:["periods"]}),c().registerSeriesType("apo",d);var l=u();return a.default}()});

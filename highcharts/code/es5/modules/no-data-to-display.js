@@ -1,0 +1,13 @@
+!/**
+ * Highcharts JS v13.0.2 (2026-08-27)
+ * @module highcharts/modules/no-data-to-display
+ * @requires highcharts
+ *
+ * Plugin for displaying a message when there is no data visible in chart.
+ *
+ * (c) 2010-2026 Highsoft AS
+ * Author: Øystein Moseng
+ *
+ * A commercial license may be required depending on use,
+ * see www.highcharts.com/license
+ */function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e(t._Highcharts,t._Highcharts.AST):"function"==typeof define&&define.amd?define("highcharts/modules/no-data-to-display",["highcharts/highcharts"],function(t){return e(t,t.AST)}):"object"==typeof exports?exports["highcharts/modules/no-data-to-display"]=e(t._Highcharts,t._Highcharts.AST):t.Highcharts=e(t.Highcharts,t.Highcharts.AST)}("u"<typeof window?this:window,function(t,e){return function(){"use strict";var a={660:function(t){t.exports=e},944:function(e){e.exports=t}},o={};function n(t){var e=o[t];if(void 0!==e)return e.exports;var r=o[t]={exports:{}};return a[t](r,r.exports,n),r.exports}n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,{a:e}),e},n.d=function(t,e){if(Array.isArray(e))for(var a=0;a<e.length;){var o=e[a++],r=e[a++];n.o(t,o)?0===r&&a++:0===r?Object.defineProperty(t,o,{enumerable:!0,value:e[a++]}):Object.defineProperty(t,o,{enumerable:!0,get:r})}else for(var o in e)n.o(e,o)&&!n.o(t,o)&&Object.defineProperty(t,o,{enumerable:!0,get:e[o]})},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)};var r={};n.d(r,{default:function(){return v}});var i=n(944),s=n.n(i),h=n(660),d=n.n(h),l={lang:{noData:"No data to display"},noData:{attr:{zIndex:1},position:{x:0,y:0,align:"center",verticalAlign:"middle"},style:{fontWeight:"bold",fontSize:"0.8em",color:"var(--highcharts-neutral-color-60)"}}};function u(){for(var t=this.series||[],e=t.length;e--;)if(t[e].hasData()&&!t[e].options.isInternal)return!0;return this.loadingShown}function c(){this.noDataLabel&&(this.noDataLabel=this.noDataLabel.destroy())}function f(t){var e=this.options,a=t||e&&e.lang.noData||"",o=e&&(e.noData||{});this.renderer&&(this.noDataLabel||(this.noDataLabel=this.renderer.label(a,0,0,void 0,void 0,void 0,o.useHTML,void 0,"no-data").add()),this.styledMode||this.noDataLabel.attr(d().filterUserAttributes(o.attr||{})).css(o.style||{}),this.noDataLabel.align((0,i.extend)(this.noDataLabel.getBBox(),o.position||{}),!1,"plotBox"))}function p(){this.hasData()?this.hideNoData():this.showNoData()}var g=s();({compose:function(t,e){var a=t.prototype;a.showNoData||(a.hasData=u,a.hideNoData=c,a.showNoData=f,(0,i.addEvent)(t,"render",p),(0,i.merge)(!0,e,l))}}).compose(g.Chart,g.defaultOptions);var v=s();return r.default}()});

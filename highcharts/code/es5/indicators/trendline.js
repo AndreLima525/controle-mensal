@@ -1,0 +1,14 @@
+!/**
+ * Highstock JS v13.0.2 (2026-08-27)
+ * @module highcharts/indicators/trendline
+ * @requires highcharts
+ * @requires highcharts/modules/stock
+ *
+ * Indicator series type for Highcharts Stock
+ *
+ * (c) 2010-2026 Highsoft AS
+ * Author: Sebastian Bochan
+ *
+ * A commercial license may be required depending on use,
+ * see www.highcharts.com/license
+ */function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t(e._Highcharts,e._Highcharts.SeriesRegistry):"function"==typeof define&&define.amd?define("highcharts/indicators/trendline",["highcharts/highcharts"],function(e){return t(e,e.SeriesRegistry)}):"object"==typeof exports?exports["highcharts/indicators/trendline"]=t(e._Highcharts,e._Highcharts.SeriesRegistry):e.Highcharts=t(e.Highcharts,e.Highcharts.SeriesRegistry)}("u"<typeof window?this:window,function(e,t){return function(){"use strict";var r,n={512:function(e){e.exports=t},944:function(t){t.exports=e}},o={};function i(e){var t=o[e];if(void 0!==t)return t.exports;var r=o[e]={exports:{}};return n[e](r,r.exports,i),r.exports}i.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(t,{a:t}),t},i.d=function(e,t){if(Array.isArray(t))for(var r=0;r<t.length;){var n=t[r++],o=t[r++];i.o(e,n)?0===o&&r++:0===o?Object.defineProperty(e,n,{enumerable:!0,value:t[r++]}):Object.defineProperty(e,n,{enumerable:!0,get:o})}else for(var n in t)i.o(t,n)&&!i.o(e,n)&&Object.defineProperty(e,n,{enumerable:!0,get:t[n]})},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)};var a={};i.d(a,{default:function(){return d}});var s=i(944),u=i.n(s),c=i(512),f=i.n(c),p=(r=function(e,t){return(r=Object.setPrototypeOf||({__proto__:[]})instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(e,t)},function(e,t){function n(){this.constructor=e}r(e,t),e.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}),h=f().seriesTypes.sma,l=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.updateAllPoints=!0,t}return p(t,e),t.prototype.getValues=function(e,t){for(var r=e.xData,n=e.yData,o=[],i=[],a=[],u=[],c=t.index,f=0,p=0,h=0,l=0,d=0,y=0;y<r.length;y++)(0===y||r[y]!==r[y-1])&&d++,o.push(d);for(var y=0;y<o.length;y++)h+=o[y],l+=(0,s.isArray)(n[y])?n[y][c]:n[y];for(var g=h/o.length,v=l/n.length,y=0;y<o.length;y++){var x=(0,s.isArray)(n[y])?n[y][c]:n[y];f+=(o[y]-g)*(x-v),p+=Math.pow(o[y]-g,2)}for(var y=0;y<o.length;y++)if(r[y]!==a[a.length-1]){var _=r[y],x=v+f/p*(o[y]-g);i.push([_,x]),a.push(_),u.push(x)}return{xData:a,yData:u,values:i}},t.defaultOptions=(0,s.merge)(h.defaultOptions,{params:{period:void 0,index:3}}),t}(h);(0,s.extend)(l.prototype,{nameBase:"Trendline",nameComponents:void 0}),f().registerSeriesType("trendline",l);var d=u();return a.default}()});
